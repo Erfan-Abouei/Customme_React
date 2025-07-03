@@ -1,9 +1,10 @@
+import WebsiteAlert from "@/components/ui/WebsiteAlert"
 import { usePageTitle } from "@/hooks/usePageTitle"
 
 const HomePage = () => {
     usePageTitle('صفحه اصلی')
     return (
-        <div>Home Page</div>
+        <WebsiteAlert />
     )
 }
 
