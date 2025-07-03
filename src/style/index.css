@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: "Iran Bold";
+    src: url(/src/assets/fonts/IranYekan/iranyekanwebbold.woff);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Iran Medium";
+    src: url(/src/assets/fonts/IranYekan/iranyekanwebmedium.woff);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Iran Regular";
+    src: url(/src/assets/fonts/IranYekan/iranyekanwebregular.woff);
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Iran Light";
+    src: url(/src/assets/fonts/IranYekan/iranyekanweblight.woff);
+    font-display: swap;
+  }
+}
+
+@theme {
+  /* Fonts */
+  --font-iran-bold: "Iran Bold";
+  --font-iran-medium: "Iran Medium";
+  --font-iran-regular: "Iran Regular";
+  --font-iran-light: "Iran Light";
+
+  --color-primary: #A72F3B;
+
+  /* Tint Color */
+  --color-primary-tint-100: #FFFFFF;
+  --color-primary-tint-200: #F6EAEB;
+  --color-primary-tint-300: #EDD5D8;
+  --color-primary-tint-400: #E5C1C4;
+  --color-primary-tint-500: #DCACB1;
+  --color-primary-tint-600: #CA8289;
+  --color-primary-tint-700: #B95962;
+
+  /* Shade Color */
+  --color-primary-shade-100: #000000;
+  --color-primary-shade-200: #110506;
+  --color-primary-shade-300: #21090C;
+  --color-primary-shade-400: #320E12;
+  --color-primary-shade-500: #431318;
+  --color-primary-shade-600: #641C23;
+  --color-primary-shade-700: #86262F;
+
+  /* Gray Color */
+  --color-gray-100: #F8F8F8;
+  --color-gray-200: #F0F0F0;
+  --color-gray-300: #EDEDED;
+  --color-gray-400: #D6D6D6;
+  --color-gray-500: #CBCBCB;
+  --color-gray-600: #AFAFAF;
+  --color-gray-700: #898989;
+  --color-gray-800: #656565;
+  --color-gray-900: #641C23;
+  --color-gray-950: #242424;
+
+  /* State Color */
+  --color-success: #00966D;
+  --color-success-light: #00BA88;
+
+  --color-warning: #A9791C;
+  --color-warning-light: #F4B740;
+
+  --color-error: #C30000;
+  --color-error-light: #ED2E2E;
+
+
+  /* reset 2xl break point */
+  --breakpoint-2x: initial;
+}
