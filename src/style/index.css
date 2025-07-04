@@ -26,6 +26,28 @@
   }
 }
 
+@layer utilities {
+  .overlay__modal--show {
+    visibility: visible;
+    opacity: 100;
+  }
+
+  .overlay__modal--close {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .search-bar--show {
+    visibility: visible;
+    opacity: 100;
+  }
+
+  .search-bar--close {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
 /* Custom Container */
 @utility container {
   @apply max-md:px-5 mx-auto
@@ -85,4 +107,8 @@
   --breakpoint-3xl: initial;
   --breakpoint-2xl: initial;
   --breakpoint-xl: 76.5rem;
+
+
+  /* Font Size : 10px */
+  --text-custom: 0.625rem;
 }
