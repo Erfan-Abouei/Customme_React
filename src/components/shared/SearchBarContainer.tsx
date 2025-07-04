@@ -1,12 +1,37 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { HiMiniXMark } from "react-icons/hi2";
 import clsx from "clsx";
 import LogoComponent from "../ui/LogoComponent";
 import SearchBar from "./SearchBar";
+import { useLocationHash } from "@/hooks/useLocationHash";
+import { addRecentlySearch } from "@/utils/recentlySerach";
 
 const SearchBarContainer = () => {
     const [search, setSearch] = useState<string>("");
     const [isOpenSearchBar, setIsOpenSearchBar] = useState<boolean>(false);
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    // Show or hide the search bar based on the current URL hash
+    const handleSearchBarVisibility = () => setIsOpenSearchBar(location.hash === '#search');
+    useLocationHash(handleSearchBarVisibility)
+
+    // Handle search input (when Enter key is pressed)
+    const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.code === 'Enter' && search.trim() !== '') {
+            // Navigate the user to the /search page and save the search value to localStorage
+            addRecentlySearch(search)
+            if (inputRef.current) {
+                inputRef.current.blur()
+            }
+            location.hash = ""
+        }
+    }
+
+    // Clear the input when the search bar is closed
+    useEffect(() => {
+        if (!isOpenSearchBar) setSearch('')
+    }, [isOpenSearchBar])
 
     return (
         <div className="relative grow">
@@ -22,7 +47,9 @@ const SearchBarContainer = () => {
             >
                 {/* Input */}
                 <input
-                    onFocus={() => setIsOpenSearchBar(true)}
+                    onFocus={() => location.hash = "search"}
+                    onKeyUp={handleSearch}
+                    ref={inputRef}
                     type="text"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
@@ -58,12 +85,12 @@ const SearchBarContainer = () => {
 
                 {/* Icon */}
                 <span className="size-6 max-md:size-4 text-primary absolute left-6 max-md:left-3">
-                    <HiMagnifyingGlass className="size-full" />
+                    {!search ? <HiMagnifyingGlass className="size-full" /> : <HiMiniXMark className="size-full" />}
                 </span>
             </div>
 
-            {/* Search Overlay */}
-            <SearchBar isOpen={isOpenSearchBar} />
+            {/* Search Bar */}
+            {isOpenSearchBar && <SearchBar searchValue={search} />}
         </div>
     );
 };

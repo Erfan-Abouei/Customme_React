@@ -8,14 +8,9 @@ export type LogoComponentProps = {
 }
 
 export type SearchBarProp = {
-    isOpen: boolean
+    searchValue: string
 }
 
-export type OverlayProps = {
-    zIndex: number,
-    onClick: () => void
-}
-
-export type OverlayProviderProp = {
-    children: React.ReactNode
+export type SearchItemProp = {
+    keyword: string
 }

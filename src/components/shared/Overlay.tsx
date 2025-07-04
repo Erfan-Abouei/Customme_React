@@ -1,12 +1,14 @@
-import { useOverlay } from "@/hooks/useOverlay"
+import { useState } from "react"
+import { useLocationHash } from "@/hooks/useLocationHash"
 
-import type { OverlayProps } from "@/types/components-props.types"
+const Overlay = () => {
+    const [isShow, setIsShow] = useState<boolean>(false)
 
-const Overlay = ({ zIndex, onClick }: OverlayProps) => {
-    const { isShow } = useOverlay()
+    // if url has hash ( set is modal show else dotn show)
+    useLocationHash(() => location.hash.split('#')[1] ? setIsShow(true) : setIsShow(false))
 
     return (
-        <div onClick={onClick} className={`${isShow ? 'overlay__modal--show' : 'overlay__modal--close'} size-full inset-0 fixed bg-black/50 z-${zIndex}`}></div>
+        <div onClick={() => window.location.hash = ""} className={`${isShow ? 'overlay__modal--show' : 'overlay__modal--close'} size-full inset-0 fixed transition-all bg-black/50 z-10`}></div>
     )
 
 }
