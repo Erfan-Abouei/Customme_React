@@ -47,12 +47,12 @@ const SearchBarContainer = () => {
             >
                 {/* Input */}
                 <input
+                    onChange={(e) => setSearch(e.target.value)}
                     onFocus={() => location.hash = "search"}
                     onKeyUp={handleSearch}
+                    value={search}
                     ref={inputRef}
                     type="text"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
                     className="text-primary text-sm font-iran-regular border-none outline-none size-full"
                 />
 

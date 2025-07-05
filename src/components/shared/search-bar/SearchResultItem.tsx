@@ -3,7 +3,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 
 const SearchResultItem = (data: CategoryItem) => {
     return (
-        <div className="cursor-pointer group flex flex-col gap-y-2 items-start">
+        <div className="cursor-pointer group flex flex-col gap-y-1 items-start">
             {/* Auto Complete Title */}
             <div className="flex items-center gap-x-1">
                 <HiMagnifyingGlass className="size-4 text-gray-700 transition-colors group-hover:text-primary" />

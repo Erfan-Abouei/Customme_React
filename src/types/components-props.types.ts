@@ -14,3 +14,6 @@ export type SearchBarProp = {
 export type SearchItemProp = {
     keyword: string
 }
+
+export type SearchResultSectionProp = SearchBarProp
+export type RecentlySearchSectionProps = SearchBarProp

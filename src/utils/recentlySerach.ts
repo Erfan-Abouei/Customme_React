@@ -14,6 +14,6 @@ export const addRecentlySearch = (data: string) => {
     localStorage.setItem('recentlySearch', JSON.stringify(newRecentlySearch))
 }
 
-export const removeSearchRecentky = () => {
+export const removeSearchRecently = () => {
     localStorage.setItem('recentlySearch', JSON.stringify([]))
 }
