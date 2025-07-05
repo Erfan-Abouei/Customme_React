@@ -6,7 +6,7 @@ import TrendsSearchSection from './TrendsSearchSection';
 const SearchBar = ({ searchValue }: SearchBarProp) => {
     return (
         <div
-            className="absolute top-0 left-0 right-0 w-full bg-white rounded-2xl transition-all duration-300 search-bar--show">
+            className="absolute max-md:fixed max-md:w-full max-md:min-h-screen top-0 left-0 right-0 w-full bg-white rounded-2xl transition-all duration-300 search-bar--show">
             <div className="pt-18 px-6 pb-6">
                 <SearchResultSection searchValue={searchValue} />
                 <RecentlySearchSection searchValue={searchValue} />

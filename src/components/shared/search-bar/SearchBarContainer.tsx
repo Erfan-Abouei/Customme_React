@@ -6,6 +6,7 @@ import LogoComponent from "../../ui/LogoComponent";
 import SearchBar from "./SearchBar";
 import { useLocationHash } from "@/hooks/useLocationHash";
 import { addRecentlySearch } from "@/utils/recentlySerach";
+import Type from '/Type.svg'
 
 const SearchBarContainer = () => {
     const [search, setSearch] = useState<string>("");
@@ -36,7 +37,7 @@ const SearchBarContainer = () => {
     return (
         <div className="relative grow">
             {/* Input Container */}
-            <div
+            <div onClick={() => location.hash = "#search"}
                 className={clsx(
                     "relative z-10 flex items-center justify-between px-6 max-md:px-3 h-12 max-md:h-8 transition-all",
                     {
@@ -45,16 +46,6 @@ const SearchBarContainer = () => {
                     }
                 )}
             >
-                {/* Input */}
-                <input
-                    onChange={(e) => setSearch(e.target.value)}
-                    onFocus={() => location.hash = "search"}
-                    onKeyUp={handleSearch}
-                    value={search}
-                    ref={inputRef}
-                    type="text"
-                    className="text-primary text-sm font-iran-regular border-none outline-none size-full"
-                />
 
                 {/* Labels - Desktop */}
                 <span
@@ -73,18 +64,18 @@ const SearchBarContainer = () => {
                 {/* Labels - Mobile */}
                 <div
                     className={clsx(
-                        "md:hidden text-primary text-custom font-iran-regular flex items-center absolute",
+                        "md:hidden text-primary text-custom font-iran-regular flex items-center gap-x-1 absolute",
                         {
                             "hidden": search,
                         }
                     )}
                 >
                     <span>جستجو در</span>
-                    <LogoComponent showLogo={false} customClass="w-15 h-4" />
+                    <img src={Type} alt="Type" className="w-15 h-4" />
                 </div>
 
                 {/* Icon */}
-                <span className="size-6 max-md:size-4 text-primary absolute left-6 max-md:left-3">
+                <span onClick={() => search ? location.hash = "" : null} className="cursor-pointer size-6 max-md:size-4 text-primary absolute left-6 max-md:left-3">
                     {!search ? <HiMagnifyingGlass className="size-full" /> : <HiMiniXMark className="size-full" />}
                 </span>
             </div>

@@ -9,7 +9,6 @@ const TrendsSearchSection = () => {
     const [isLoadingTrendsSearch, setIsLoadingTrendsSearch] = useState<boolean>(false)
     const [trendsSearch, setTrendsSearch] = useState<SearchDTO | null>()
 
-
     // Load Trends Search
     useEffect(() => {
         const fetchTrendsSearch = async (): Promise<void> => {
@@ -24,8 +23,6 @@ const TrendsSearchSection = () => {
         }
         fetchTrendsSearch()
     }, [])
-
-
 
     // JSX LOGIC
     const trendsSearchLoader = Array.from({ length: 6 }).map((_, i) => <SearchItemLoader key={i} />)
