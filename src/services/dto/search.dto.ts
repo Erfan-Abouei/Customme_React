@@ -1,4 +1,4 @@
-interface CategoryItem {
+export interface CategoryItem {
     keyword: string;
     category: {
         id: number;

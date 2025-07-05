@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { HiMiniXMark } from "react-icons/hi2";
 import clsx from "clsx";
-import LogoComponent from "../ui/LogoComponent";
+import LogoComponent from "../../ui/LogoComponent";
 import SearchBar from "./SearchBar";
 import { useLocationHash } from "@/hooks/useLocationHash";
 import { addRecentlySearch } from "@/utils/recentlySerach";

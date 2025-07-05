@@ -1,4 +1,4 @@
-import SearchBarContainer from "../shared/SearchBarContainer"
+import SearchBarContainer from "../shared/search-bar/SearchBarContainer"
 import LogoComponent from "../ui/LogoComponent"
 
 const Header = () => {

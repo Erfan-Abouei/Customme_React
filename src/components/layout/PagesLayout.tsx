@@ -19,7 +19,7 @@ const PagesLayout = () => {
             {/* Footer ( After Create ) */}
 
             {/* Overlay */}
-            <Overlay zIndex={10} onClick={() => location.hash = ''} />
+            <Overlay />
         </>
     )
 }
