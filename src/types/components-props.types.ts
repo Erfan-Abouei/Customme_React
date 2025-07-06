@@ -24,3 +24,7 @@ export type DesktopSearchBarProps = {
     search: string,
     setSearch: React.Dispatch<React.SetStateAction<string>>
 }
+
+export type NotFoundTextProp = {
+    message: string
+}

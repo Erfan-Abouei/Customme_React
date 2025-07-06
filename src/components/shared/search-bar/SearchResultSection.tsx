@@ -6,14 +6,13 @@ import { searchItem } from "@/services/handle-search-request";
 import { useEffect, useState } from "react";
 import SearchResultItem from "./SearchResultItem";
 import SearchResultItemLoader from "./SearchResultItemLoader";
-import toast from "react-hot-toast";
 
 const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
     const [isLoadingAutoComplete, setIsLoadingAutoComplete] = useState(false);
     const [autoComplete, setAutoComplete] = useState<SearchDTO | null>(null);
 
     useEffect(() => {
-        if (!searchValue) {
+        if (!searchValue || searchValue.trim().length === 0) {
             setAutoComplete(null);
             return;
         }
@@ -26,13 +25,12 @@ const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
                 const data = await searchItem(searchValue, controller.signal);
                 setAutoComplete(data);
             } catch (error) {
-                toast.error('دریافت اطلاعات با مشکل مواجه شد')
             } finally {
                 setIsLoadingAutoComplete(false);
             }
         };
 
-        const timeout = setTimeout(fetchAutoComplete, 1000);
+        const timeout = setTimeout(fetchAutoComplete, 500);
 
         return () => {
             clearTimeout(timeout);
@@ -40,26 +38,30 @@ const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
         };
     }, [searchValue]);
 
-    const autoCompleteCategoryTitle = autoComplete?.data?.advance_links?.[0]?.category?.title_fa;
-    const autoCompleteItems = autoComplete?.data?.categories.map((category: CategoryItem) => (
-        <SearchResultItem key={category.category.id} {...category} />
-    ));
-    const autoCompleteLoader = Array.from({ length: 4 }).map((_, i) => <SearchResultItemLoader key={i} />)
-
-
-    if (!searchValue || !autoComplete || !autoCompleteCategoryTitle) return null;
-
+    const autoCompleteCategoryTitle = autoComplete?.data?.advance_links?.[0]?.category?.title_fa || '';
+    const autoCompleteItems = Array.isArray(autoComplete?.data?.categories)
+        ? autoComplete.data.categories.map((category: CategoryItem) => (
+            <SearchResultItem key={category.category.id} {...category} />
+        ))
+        : [];
+    const autoCompleteLoader = Array.from({ length: 3 }).map((_, i) => <SearchResultItemLoader key={i} />)
+    const isShowResult = !isLoadingAutoComplete && autoComplete && autoCompleteCategoryTitle
     return (
-        <div className="pb-8 border-b border-gray-400 flex flex-col gap-y-6">
-            {!isLoadingAutoComplete && (
-                <span className="text-custom font-iran-regular text-black">
-                    همه کالا های {autoCompleteCategoryTitle}
-                </span>
-            )}
-            <div className="flex flex-col gap-y-6">
-                {isLoadingAutoComplete ? autoCompleteLoader : autoCompleteItems}
-            </div>
-        </div>
+        <>
+            {isShowResult && (<div className="pb-8 border-b border-gray-400">
+                {!isLoadingAutoComplete && (
+                    <span className="block mb-6 text-custom font-iran-regular text-black">
+                        همه کالا های {autoCompleteCategoryTitle}
+                    </span>
+                )}
+                <div className="flex flex-col gap-y-6">
+                    {autoCompleteItems}
+                </div>
+            </div>)}
+            {isLoadingAutoComplete && (<div className="pb-8 border-b border-gray-500 flex flex-col gap-y-6">
+                {autoCompleteLoader}
+            </div>)}
+        </>
     );
 };
 

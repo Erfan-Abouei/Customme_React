@@ -3,5 +3,9 @@ import { useEffect } from "react"
 export const useLocationHash = (eventHandlerFunction: () => void) => {
     useEffect(() => {
         eventHandlerFunction()
-    }, [window.location.hash])
+        window.addEventListener("hashchange", eventHandlerFunction);
+        return () => {
+            window.removeEventListener("hashchange", eventHandlerFunction);
+        };
+    }, []);
 }
