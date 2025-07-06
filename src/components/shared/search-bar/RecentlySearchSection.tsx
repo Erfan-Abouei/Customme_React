@@ -1,7 +1,7 @@
 import type { RecentlySearchSectionProps } from "@/types/components-props.types"
 import { useState } from "react"
 import SearchItem from "./SearchItem"
-import { getRecentlySearchFromLocalStorage, removeSearchRecently } from "@/utils/recentlySerach"
+import { getRecentlySearchFromLocalStorage, removeRecentlySearch } from "@/utils/recentlySerach"
 import { HiOutlineTrash } from "react-icons/hi2"
 
 const RecentlySearchSection = ({ searchValue }: RecentlySearchSectionProps) => {
@@ -12,7 +12,7 @@ const RecentlySearchSection = ({ searchValue }: RecentlySearchSectionProps) => {
 
     const handleDeleteRecentlySearch = () => {
         setRecentlySearch([])
-        removeSearchRecently()
+        removeRecentlySearch()
     }
 
     if (!isShowRecentlySearchSection) return null

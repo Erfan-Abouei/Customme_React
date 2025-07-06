@@ -36,7 +36,7 @@ const SearchBar = () => {
         >
             {/* Search Input */}
             <div className="mb-6 shrink-0 border-b border-b-gray-400 px-6 h-12 flex items-center justify-center text-primary">
-                <input value={search} onKeyUp={handleSearch} onChange={(e) => setSearch(e.target.value)} placeholder="جستجو" type="text" className="placeholder:text-gray-400 border-none outline-none size-full text-sm font-iran-regular" />
+                <input ref={inputRef} value={search} onKeyUp={handleSearch} onChange={(e) => setSearch(e.target.value)} placeholder="جستجو" type="text" className="placeholder:text-gray-400 border-none outline-none size-full text-sm font-iran-regular" />
                 <span className="size-6">
                     <HiMiniXMark className="size-full" />
                 </span>

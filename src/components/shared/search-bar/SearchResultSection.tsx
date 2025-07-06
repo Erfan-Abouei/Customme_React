@@ -20,13 +20,13 @@ const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
         const controller = new AbortController();
 
         const fetchAutoComplete = async () => {
+            setIsLoadingAutoComplete(true);
             try {
-                setIsLoadingAutoComplete(true);
                 const data = await searchItem(searchValue, controller.signal);
                 setAutoComplete(data);
+                setIsLoadingAutoComplete(false)
             } catch (error) {
-            } finally {
-                setIsLoadingAutoComplete(false);
+                setIsLoadingAutoComplete(false)
             }
         };
 

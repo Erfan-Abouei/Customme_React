@@ -16,9 +16,8 @@ const TrendsSearchSection = () => {
             try {
                 const trendsSearchData = await getTrendSearch()
                 setTrendsSearch(trendsSearchData)
+                setIsLoadingTrendsSearch(false)
             } catch (error) {
-                console.error(error)
-            } finally {
                 setIsLoadingTrendsSearch(false)
             }
         }
