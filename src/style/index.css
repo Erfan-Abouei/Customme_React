@@ -46,6 +46,10 @@
     visibility: hidden;
     opacity: 0;
   }
+
+  div[role="status"] {
+    @apply font-iran-medium text-sm max-md:text-custom
+  }
 }
 
 /* Custom Container */
@@ -89,7 +93,7 @@
   --color-gray-600: #AFAFAF;
   --color-gray-700: #898989;
   --color-gray-800: #656565;
-  --color-gray-900: #641C23;
+  --color-gray-900: #434343;
   --color-gray-950: #242424;
 
   /* State Color */

@@ -1,14 +1,15 @@
-import type { LogoComponentProps } from "@/types/components-props.types"
-
+import type { LogoComponentProps } from '@/types/components-props.types'
 import Logo from '/Logo.svg'
 import LogoType from '/LogoType.svg'
+import { useNavigate } from "react-router"
 
-const LogoComponent = ({ customClass, gap = 1, showLogoType = true, showLogo = true, LogoClass, LogoTypeClass }: LogoComponentProps) => {
+const LogoComponent = ({ customClass, customLogoClass, customLogoTypeClass }: LogoComponentProps) => {
+    const navigate = useNavigate()
     return (
-        <span className={customClass + ` flex items-center gap-x-${gap} `}>
-            <img src={Logo} alt="Logo" className={`${LogoClass} size-full ${!showLogo ? 'hidden' : ''}`} />
-            <img src={LogoType} alt="LogoType" className={`${LogoTypeClass} size-full ${!showLogoType ? 'hidden' : ''}`} />
-        </span>
+        <div onClick={() => navigate('/')} className={`cursor-pointer flex items-center gap-x-1 ${customClass}`}>
+            <img src={Logo} alt="Logo" className={customLogoClass} />
+            <img src={LogoType} alt="Logo Type" className={customLogoTypeClass} />
+        </div>
     )
 }
 

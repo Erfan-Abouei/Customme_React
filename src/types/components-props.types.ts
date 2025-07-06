@@ -1,21 +1,30 @@
 export type LogoComponentProps = {
+    customLogoClass: string
+    customLogoTypeClass: string
     customClass: string
-    gap?: number
-    showLogoType?: boolean
-    showLogo?: boolean
-    LogoClass?: string
-    LogoTypeClass?: string
 }
 
 export type SearchBarProp = {
-    isOpen: boolean
+    searchValue: string
 }
 
-export type OverlayProps = {
-    zIndex: number,
-    onClick: () => void
+export type SearchItemProp = {
+    keyword: string
 }
 
-export type OverlayProviderProp = {
-    children: React.ReactNode
+export type SearchResultSectionProp = SearchBarProp
+export type RecentlySearchSectionProps = SearchBarProp
+
+export type AccountButtonProps = {
+    children: React.ReactNode,
+    onClick?: () => void
+}
+
+export type DesktopSearchBarProps = {
+    search: string,
+    setSearch: React.Dispatch<React.SetStateAction<string>>
+}
+
+export type NotFoundTextProp = {
+    message: string
 }

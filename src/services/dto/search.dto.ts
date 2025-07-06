@@ -1,4 +1,4 @@
-interface CategoryItem {
+export interface CategoryItem {
     keyword: string;
     category: {
         id: number;
@@ -6,7 +6,7 @@ interface CategoryItem {
         title_en: string;
         code: string;
     };
-}   
+}
 
 interface AutoCompleteItem {
     keyword: string;
@@ -26,7 +26,7 @@ interface AdvanceLinkItem {
     };
 }
 
-interface TrendItem {
+export interface TrendItem {
     keyword: string;
     url: {
         base: string | null;

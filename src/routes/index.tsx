@@ -1,5 +1,7 @@
-import PagesLayout from "@/components/layout/PagesLayout";
-import HomePage from "@/pages/home";
+import { lazy } from "react";
+
+const PagesLayout = lazy(() => import('@/components/layout/PagesLayout'))
+const HomePage = lazy(() => import('@/pages/home/index'))
 
 import { Route } from "react-router";
 
