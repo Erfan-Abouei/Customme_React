@@ -50,7 +50,7 @@ const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
     if (!searchValue || !autoComplete || !autoCompleteCategoryTitle) return null;
 
     return (
-        <div className="pb-8 mb-6 border-b border-gray-400 flex flex-col gap-y-6">
+        <div className="pb-8 border-b border-gray-400 flex flex-col gap-y-6">
             {!isLoadingAutoComplete && (
                 <span className="text-custom font-iran-regular text-black">
                     همه کالا های {autoCompleteCategoryTitle}

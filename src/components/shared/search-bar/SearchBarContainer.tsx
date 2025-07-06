@@ -1,33 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import { HiMagnifyingGlass } from "react-icons/hi2";
-import { HiMiniXMark } from "react-icons/hi2";
-import clsx from "clsx";
-import LogoComponent from "../../ui/LogoComponent";
-import SearchBar from "./SearchBar";
+import { useEffect, useState } from "react";
 import { useLocationHash } from "@/hooks/useLocationHash";
-import { addRecentlySearch } from "@/utils/recentlySerach";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 import Type from '/Type.svg'
+import DesktopSearchBar from "./DesktopSearchBar";
 
 const SearchBarContainer = () => {
-    const [search, setSearch] = useState<string>("");
+    const [search, setSearch] = useState<string>("")
     const [isOpenSearchBar, setIsOpenSearchBar] = useState<boolean>(false);
-    const inputRef = useRef<HTMLInputElement>(null)
 
     // Show or hide the search bar based on the current URL hash
     const handleSearchBarVisibility = () => setIsOpenSearchBar(location.hash === '#search');
     useLocationHash(handleSearchBarVisibility)
-
-    // Handle search input (when Enter key is pressed)
-    const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.code === 'Enter' && search.trim() !== '') {
-            // Navigate the user to the /search page and save the search value to localStorage
-            addRecentlySearch(search)
-            if (inputRef.current) {
-                inputRef.current.blur()
-            }
-            location.hash = ""
-        }
-    }
 
     // Clear the input when the search bar is closed
     useEffect(() => {
@@ -35,53 +18,17 @@ const SearchBarContainer = () => {
     }, [isOpenSearchBar])
 
     return (
-        <div className="relative grow">
-            {/* Input Container */}
-            <div onClick={() => location.hash = "#search"}
-                className={clsx(
-                    "relative z-10 flex items-center justify-between px-6 max-md:px-3 h-12 max-md:h-8 transition-all",
-                    {
-                        "border-b border-t-transparent border-r-transparent border-l-transparent border-b-gray-400 hover:border-b-gray-600 rounded-none": isOpenSearchBar,
-                        "border border-gray-400 hover:border-gray-600 rounded-2xl": !isOpenSearchBar,
-                    }
-                )}
-            >
-
-                {/* Labels - Desktop */}
-                <span
-                    className={clsx(
-                        "transition-colors max-md:hidden text-sm font-iran-regular absolute",
-                        {
-                            "hidden": search,
-                            "text-gray-400": isOpenSearchBar,
-                            "text-primary": !isOpenSearchBar,
-                        }
-                    )}
-                >
-                    جستجو
-                </span>
-
-                {/* Labels - Mobile */}
-                <div
-                    className={clsx(
-                        "md:hidden text-primary text-custom font-iran-regular flex items-center gap-x-1 absolute",
-                        {
-                            "hidden": search,
-                        }
-                    )}
-                >
-                    <span>جستجو در</span>
-                    <img src={Type} alt="Type" className="w-15 h-4" />
-                </div>
-
-                {/* Icon */}
-                <span onClick={() => search ? location.hash = "" : null} className="cursor-pointer size-6 max-md:size-4 text-primary absolute left-6 max-md:left-3">
-                    {!search ? <HiMagnifyingGlass className="size-full" /> : <HiMiniXMark className="size-full" />}
-                </span>
+        <div className="relative grow text-primary flex items-center justify-between cursor-pointer h-12 max-md:h-8 px-6 max-md:px-3 rounded-2xl border border-gray-400 transition-all hover:border-gray-600">
+            {/* Label ( Desktop ) */}
+            <span className="max-md:hidden text-sm font-iran-regular">جستجو</span>
+            {/* Label ( Mobile ) */}
+            <div className="md:hidden flex items-center gap-x-1">
+                <span className="text-custom font-iran-regular">جستجو در</span>
+                <img className="w-14.75 h-3.75" src={Type} alt="Type" />
             </div>
-
-            {/* Search Bar */}
-            {isOpenSearchBar && <SearchBar searchValue={search} />}
+            {/* Search Icon */}
+            <HiMagnifyingGlass className="size-6 max-md:size-4" />
+            <DesktopSearchBar />
         </div>
     );
 };

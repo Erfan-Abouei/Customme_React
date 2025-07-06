@@ -27,7 +27,7 @@ const TrendsSearchSection = () => {
     // JSX LOGIC
     const trendsSearchLoader = Array.from({ length: 6 }).map((_, i) => <SearchItemLoader key={i} />)
     const trendsSearchItem = trendsSearch?.data?.trends.map((trend) => <SearchItem key={trend.keyword} keyword={trend.keyword} />)
-
+    if (!trendsSearchItem) return null
     return (
         <div className="flex flex-col gap-y-3.5">
             <span className='text-xs font-iran-regular text-gray-950'>جستجوهای پرطرفدار</span>

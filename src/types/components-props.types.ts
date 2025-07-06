@@ -19,3 +19,8 @@ export type AccountButtonProps = {
     children: React.ReactNode,
     onClick?: () => void
 }
+
+export type DesktopSearchBarProps = {
+    search: string,
+    setSearch: React.Dispatch<React.SetStateAction<string>>
+}

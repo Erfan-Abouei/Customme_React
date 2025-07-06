@@ -46,6 +46,10 @@
     visibility: hidden;
     opacity: 0;
   }
+
+  div[role="status"] {
+    @apply font-iran-medium text-sm max-md:text-custom
+  }
 }
 
 /* Custom Container */
