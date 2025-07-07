@@ -50,6 +50,18 @@
   div[role="status"] {
     @apply font-iran-medium text-sm max-md:text-custom
   }
+
+  .page__scroll--custom::-webkit-scrollbar {
+    height: 2px;
+  }
+
+  .page__scroll--custom::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+  }
+
+  .page__scroll--hidden::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Custom Container */
