@@ -1,7 +1,7 @@
 export type LogoComponentProps = {
-    customLogoClass: string
-    customLogoTypeClass: string
-    customClass: string
+    customLogoClass?: string
+    customLogoTypeClass?: string
+    customClass?: string
 }
 
 export type SearchBarProp = {
