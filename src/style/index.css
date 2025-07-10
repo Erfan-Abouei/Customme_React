@@ -63,6 +63,15 @@
     display: none;
   }
 
+  .magnet-highlight__image-box {
+    background-image: linear-gradient(315deg, #e03d96, #7d4c9e)
+  }
+
+  .toast__box--custom-class {
+    background-color: var(--color-black) !important;
+    color: #fff !important;
+  }
+
   .bar {
     background-color: #C15568 !important;
   }

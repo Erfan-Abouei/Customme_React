@@ -8,6 +8,7 @@ import { Toaster } from 'react-hot-toast'
 import 'nprogress/nprogress.css';
 
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Suspense fallback={<LoadingScreen />} >
@@ -15,8 +16,7 @@ createRoot(document.getElementById('root')!).render(
         <App />
       </Provider>
       <Toaster
-        position="top-center"
-        reverseOrder={false}
+        position="bottom-left"
       />
     </Suspense>
   </StrictMode>,
