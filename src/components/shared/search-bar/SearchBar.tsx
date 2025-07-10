@@ -18,13 +18,13 @@ const SearchBar = () => {
     }, [])
 
     // Handle search input (when Enter key is pressed)
-    const handleSearch = useCallback(() => (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.code === 'Enter' && search.trim() !== '') {
             // Navigate the user to the /search page and save the search value to localStorage
             addRecentlySearch(search)
             location.hash = ""
         }
-    }, [])
+    }
 
     return (
         <motion.div
