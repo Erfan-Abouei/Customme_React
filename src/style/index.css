@@ -62,6 +62,10 @@
   .page__scroll--hidden::-webkit-scrollbar {
     display: none;
   }
+
+  .bar {
+    background-color: #C15568 !important;
+  }
 }
 
 /* Custom Container */
