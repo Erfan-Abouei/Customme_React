@@ -3,12 +3,19 @@ import { lazy } from "react";
 const PagesLayout = lazy(() => import('@/components/layout/PagesLayout'))
 const HomePage = lazy(() => import('@/pages/home/index'))
 
-import { Route } from "react-router";
+import { createBrowserRouter } from "react-router";
 
-const route = [
-    <Route element={<PagesLayout />}>
-        <Route index element={<HomePage />} />
-    </Route>
-]
+const routes = createBrowserRouter([
+    {
+        // Layout Route
+        element: <PagesLayout />,
+        children: [
+            {
+                index: true,
+                element: <HomePage />
+            }
+        ]
+    }
+])
 
-export default route
+export default routes

@@ -1,14 +1,10 @@
-import { BrowserRouter as Router, Routes } from "react-router"
-import route from './routes/index'
+import { RouterProvider } from "react-router"
+import routes from "./routes/index"
 
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        {route}
-      </Routes>
-    </Router>
+    <RouterProvider router={routes} />
   )
 }
 
