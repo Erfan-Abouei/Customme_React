@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { addRecentlySearch } from '@/utils/recentlySerach';
 import { HiMiniXMark } from "react-icons/hi2";
 import SearchResultSection from './SearchResultSection';
@@ -18,13 +18,13 @@ const SearchBar = () => {
     }, [])
 
     // Handle search input (when Enter key is pressed)
-    const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleSearch = useCallback(() => (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.code === 'Enter' && search.trim() !== '') {
             // Navigate the user to the /search page and save the search value to localStorage
             addRecentlySearch(search)
             location.hash = ""
         }
-    }
+    }, [])
 
     return (
         <motion.div

@@ -1,6 +1,6 @@
 import type SearchDTO from "@/services/dto/search.dto"
 import { getTrendSearch } from "@/services/handle-search-request"
-import { useEffect, useState } from "react"
+import { memo, useEffect, useState } from "react"
 import SearchItemLoader from "./SearchItemLoader"
 import SearchItem from "./SearchItem"
 import NotFoundText from "./NotFoundText"
@@ -43,4 +43,4 @@ const TrendsSearchSection = () => {
     )
 }
 
-export default TrendsSearchSection
+export default memo(TrendsSearchSection)

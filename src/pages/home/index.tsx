@@ -1,9 +1,12 @@
 import { usePageTitle } from "@/hooks/usePageTitle"
+import HeroSection from "./components/HeroSection";
 
 const HomePage = () => {
     usePageTitle('صفحه اصلی')
     return (
-        <div className=""></div>
+        <>
+            <HeroSection />
+        </>
     )
 };
 export default HomePage

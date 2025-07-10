@@ -28,3 +28,9 @@ export type DesktopSearchBarProps = {
 export type NotFoundTextProp = {
     message: string
 }
+
+export type PrimaryButtonProps = {
+    onClick?: () => void
+    customClass?: string
+    children: React.ReactNode
+}
