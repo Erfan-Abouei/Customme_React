@@ -34,3 +34,10 @@ export type PrimaryButtonProps = {
     customClass?: string
     children: React.ReactNode
 }
+
+export type ImageWithPlaceholderProps = {
+    placeHolderURL?: string;
+    resultImageURL: string;
+    placeHolderClass?: string;
+    resultImageClass?: string;
+}

@@ -1,10 +1,12 @@
-import { useDispatch, useSelector } from "react-redux"
-import MagnetPostCardLoader from "../shared/MagnetPostCardLoader"
 import { type AppDispatch, type RootState } from "@/store"
+import type { Post } from "@/services/dto/magnet-post.dto"
+
+import { useDispatch, useSelector } from "react-redux"
 import { useOneTime } from "@/hooks/useOneTime"
 import { loadPost } from "@/reducers/magnet/magnetReducer"
-import type { Post } from "@/services/dto/magnet-post.dto"
-import MagnetPostCard from "../shared/MagnetPostCard"
+
+import MagnetPostCardLoader from "../shared/magnet-post/MagnetPostCardLoader"
+import MagnetPostCard from "../shared/magnet-post/MagnetPostCard"
 
 
 const MainMenu = () => {
@@ -19,7 +21,6 @@ const MainMenu = () => {
             <div className="container">
                 <div className="flex items-center gap-x-6 overflow-auto page__scroll--hidden">
                     {isLoadingMagnets || magnets.length === 0 ? magnetPostCardLoader : magnetPosts}
-
                 </div>
             </div>
         </section>
