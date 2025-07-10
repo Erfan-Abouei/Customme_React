@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { addRecentlySearch } from '@/utils/recentlySerach';
 import { HiMiniXMark } from "react-icons/hi2";
 import SearchResultSection from './SearchResultSection';

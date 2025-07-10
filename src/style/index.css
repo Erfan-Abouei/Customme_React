@@ -131,4 +131,5 @@
 
   /* Font Size : 10px */
   --text-custom: 0.625rem;
+  --shadow-custom: 0px 0px 50px;
 }
