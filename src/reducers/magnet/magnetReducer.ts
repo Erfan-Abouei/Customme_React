@@ -27,8 +27,7 @@ const magnetPostReducer = createSlice({
             state.magnets = []
         },
         changeSelectedPost: (state, { payload }) => {
-            const isExsitsMagnet = state.magnets.find((post: Post) => post.id === payload)
-            state.selectedMagnet = isExsitsMagnet ?? null
+            state.selectedMagnet = payload
         },
         savePosts: (state, { payload }: { payload: Post[] }) => {
             state.isLoadingMagnets = false
