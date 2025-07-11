@@ -41,3 +41,5 @@ export type ImageWithPlaceholderProps = {
     placeHolderClass?: string;
     resultImageClass?: string;
 }
+
+export type PostActionsButtonProps = AccountButtonProps

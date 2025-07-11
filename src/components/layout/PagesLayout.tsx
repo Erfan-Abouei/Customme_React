@@ -7,6 +7,7 @@ import MagnetSection from "./MagnetSection"
 
 import { useProgress } from "@/hooks/useProgress"
 import { useOfflineAlert } from "@/hooks/useOfflineAlert"
+import MovieModal from "../shared/magnet-post/MovieModal"
 
 const PagesLayout = () => {
     const isHomePage = useMatch('/')
@@ -20,6 +21,7 @@ const PagesLayout = () => {
             <Header />
 
             <MagnetSection />
+            <MovieModal />
 
             <main>
                 <Outlet />

@@ -72,6 +72,11 @@
     color: #fff !important;
   }
 
+  .movie-modal__content--overlay {
+    background-image: linear-gradient(to top, #000000e1, transparent, #000000);
+
+  }
+
   .bar {
     background-color: #C15568 !important;
   }
