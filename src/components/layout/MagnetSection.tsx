@@ -3,7 +3,7 @@ import type { Post } from "@/services/dto/magnet-post.dto"
 
 import { useDispatch, useSelector } from "react-redux"
 import { useOneTime } from "@/hooks/useOneTime"
-import { loadPost } from "@/reducers/magnet/magnetReducer"
+import { fetchPost } from "@/reducers/magnet/magnetReducer"
 
 import MagnetPostCardLoader from "../shared/magnet-post/MagnetPostCardLoader"
 import MagnetPostCard from "../shared/magnet-post/MagnetPostCard"
@@ -12,7 +12,7 @@ import MagnetPostCard from "../shared/magnet-post/MagnetPostCard"
 const MainMenu = () => {
     const { isLoadingMagnets, magnets } = useSelector((state: RootState) => state.magnetPosts)
     const dispatch = useDispatch<AppDispatch>()
-    useOneTime(() => dispatch(loadPost()))
+    useOneTime(() => dispatch(fetchPost()))
 
     const magnetPostCardLoader = Array.from({ length: 11 }).map((_, i: number) => <MagnetPostCardLoader key={i} />)
     const magnetPosts = Array.isArray(magnets) ? magnets.map((post: Post) => <MagnetPostCard key={post.id} {...post} />) : []

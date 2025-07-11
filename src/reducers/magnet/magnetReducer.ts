@@ -1,4 +1,4 @@
-import { createSlice, type Dispatch } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { InitialState } from "./types/initialState.type";
 import { getMagnetPosts } from "@/services/handle-magnet-post-request";
 import type { Post } from "@/services/dto/magnet-post.dto";
@@ -27,18 +27,37 @@ const magnetPostReducer = createSlice({
             state.selectedMagnet = payload
         },
         savePosts: (state, { payload }: { payload: Post[] }) => {
-            state.isLoadingMagnets = false
+            magnetPostReducer.caseReducers.postsLoaded(state)
             state.magnets = payload
         }
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchPost.pending, (state) => {
+                state.isLoadingMagnets = true;
+            })
+            .addCase(fetchPost.fulfilled, (state, action) => {
+                state.isLoadingMagnets = false;
+
+                if (Array.isArray(action.payload?.data)) {
+                    state.magnets = [];
+                } else if (Array.isArray(action.payload?.data?.posts)) {
+                    state.magnets = action.payload.data.posts;
+                } else {
+                    state.magnets = [];
+                }
+            })
+            .addCase(fetchPost.rejected, (state) => {
+                state.isLoadingMagnets = false;
+            });
     }
+
 })
 
-export const loadPost = () => async (dispatch: Dispatch) => {
-    dispatch(postsLoading())
+export const fetchPost = createAsyncThunk('magnetPost/fetchPost', async () => {
     const data = await getMagnetPosts(3)
-    data?.data.posts ? dispatch(savePosts(data.data.posts)) : dispatch(savePosts([]))
-
-}
+    return data
+})
 
 export const { postsLoading, postsLoaded, changeSelectedPost, savePosts } = magnetPostReducer.actions
 export default magnetPostReducer.reducer

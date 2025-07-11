@@ -70,7 +70,5 @@ export type Post = {
 
 export type MagnetPosts = {
     status: number;
-    data: {
-        posts: Post[];
-    };
+    data: { posts: Post[]; } | []
 };
