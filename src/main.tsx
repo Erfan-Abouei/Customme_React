@@ -18,6 +18,8 @@ createRoot(document.getElementById('root')!).render(
       <Toaster
         position="bottom-left"
       />
+      {/* Fake element (for apply tailwindcss dynamic class ) */}
+      <div className="z-30"></div>
     </Suspense>
   </StrictMode>,
 )
