@@ -13,13 +13,9 @@ const TrendsSearchSection = () => {
     useEffect(() => {
         const fetchTrendsSearch = async (): Promise<void> => {
             setIsLoadingTrendsSearch(true)
-            try {
-                const trendsSearchData = await getTrendSearch()
-                setTrendsSearch(trendsSearchData)
-                setIsLoadingTrendsSearch(false)
-            } catch (error) {
-                setIsLoadingTrendsSearch(false)
-            }
+            const trendsSearchData = await getTrendSearch()
+            setTrendsSearch(trendsSearchData)
+            setIsLoadingTrendsSearch(false)
         }
         fetchTrendsSearch()
     }, [])

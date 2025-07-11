@@ -36,7 +36,6 @@ const magnetPostReducer = createSlice({
 export const loadPost = () => async (dispatch: Dispatch) => {
     dispatch(postsLoading())
     const data = await getMagnetPosts(3)
-    console.log(data)
     data?.data.posts ? dispatch(savePosts(data.data.posts)) : dispatch(savePosts([]))
 
 }
