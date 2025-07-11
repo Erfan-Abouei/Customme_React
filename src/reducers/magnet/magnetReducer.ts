@@ -23,9 +23,6 @@ const magnetPostReducer = createSlice({
         postsLoaded: (state) => {
             state.isLoadingMagnets = false
         },
-        postsError: (state) => {
-            state.magnets = []
-        },
         changeSelectedPost: (state, { payload }) => {
             state.selectedMagnet = payload
         },
@@ -37,11 +34,12 @@ const magnetPostReducer = createSlice({
 })
 
 export const loadPost = () => async (dispatch: Dispatch) => {
-    dispatch({ type: 'magnetPost/postsLoading' })
+    dispatch(postsLoading())
     const data = await getMagnetPosts(3)
-    data ? dispatch({ type: 'magnetPost/savePosts', payload: data?.data.posts }) : dispatch({ type: 'magnetPost/postsError' })
+    console.log(data)
+    data?.data.posts ? dispatch(savePosts(data.data.posts)) : dispatch(savePosts([]))
 
 }
 
-export const { postsLoading, postsLoaded, postsError, changeSelectedPost, savePosts } = magnetPostReducer.actions
+export const { postsLoading, postsLoaded, changeSelectedPost, savePosts } = magnetPostReducer.actions
 export default magnetPostReducer.reducer

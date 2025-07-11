@@ -12,11 +12,11 @@ const Header = () => {
     const [isHeaderBehindModal, setIsHeaderBehindModal] = useState(false);
 
     // Adjust the header's z-index based on the current URL hash to show it behind a modal when needed
-    const DynamicZIndexHeader = () => setIsHeaderBehindModal(location.hash === '#mv');
+    const DynamicZIndexHeader = () => setIsHeaderBehindModal(location.hash !== '#search');
     useLocationHash(DynamicZIndexHeader)
     return (
         <header>
-            <div className={`relative bg-white z-${isHeaderBehindModal ? '10' : '20'} h-26 flex items-center max-md:h-13 md:border-b md:border-gray-400`}>
+            <div className={`relative bg-white z-${isHeaderBehindModal ? '10' : '30'} h-26 flex items-center max-md:h-13 md:border-b md:border-gray-400`}>
                 <div className="container">
                     <div className="flex items-center justify-between gap-x-18.75 max-xl:gap-x-13 max-lg:gap-x-6 max-md:gap-x-3">
                         {/* Mobile Menu Bars Icon */}
