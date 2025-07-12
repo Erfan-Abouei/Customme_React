@@ -5,7 +5,6 @@ import { changeSelectedPost } from "@/reducers/magnet/magnetReducer"
 
 const MagnetPostCard = (post: Post) => {
     const dispatch = useDispatch()
-
     const handleShowPost = () => {
         location.hash = "#mv"
         dispatch(changeSelectedPost(post))
