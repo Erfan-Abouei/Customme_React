@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiPlay } from "react-icons/hi2";
 import MovieModalTopSection from "./MovieModalTopSection";
-import MovieModalProgress from './MovieModalProgress';
 import MovieModalBottomSection from './MovieModalBottomSection';
 
 const MovieModal = () => {
@@ -23,16 +22,14 @@ const MovieModal = () => {
     };
 
     // Handle the click event on the progress bar to seek the video
-    const handleSeek = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+    const handleSeek = useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
         const progressBar = e.currentTarget;
-
         const clickPosition = e.clientX - progressBar.getBoundingClientRect().right;
         const newTime = (Math.abs(clickPosition) / progressBar.offsetWidth) * duration;
-
         if (videoElement.current) {
             videoElement.current.currentTime = newTime;
         }
-    };
+    }, [duration]);
 
     // Update the progress bar whenever currentTime or duration changes
     useEffect(() => {
@@ -42,14 +39,15 @@ const MovieModal = () => {
     }, [currentTime, duration]);
 
     // Toggle play/pause
-    const togglePlay = () => {
+    const togglePlay = useCallback(() => {
         if (isPlay) {
             videoElement.current?.pause();
         } else {
             videoElement.current?.play();
         }
-        setIsPlay(!isPlay);
-    };
+        setIsPlay(prevState => !prevState);
+    }, [isPlay]);
+
 
     return (
         <motion.div
@@ -70,9 +68,7 @@ const MovieModal = () => {
                 <video
                     ref={videoElement}
                     src="/video1.mp4"
-                    autoPlay={isPlay}
                     loop
-                    muted={false}
                     playsInline
                     className="aspect-video size-full object-cover"
                     onTimeUpdate={handleTimeUpdate}
@@ -83,7 +79,10 @@ const MovieModal = () => {
             <div className="absolute inset-0 size-full movie-modal__content--overlay"></div>
 
             {/* ProgressBar */}
-            <MovieModalProgress onClick={handleSeek} data={progressBarNumber} />
+            <div onClick={handleSeek} className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800 cursor-pointer">
+                {/* Line */}
+                <div className="transition-all h-full bg-white" style={{ width: progressBarNumber + '%' }}></div>
+            </div>
 
             {/* Play Button */}
             {!isPlay && (<div className="absolute inset-0 m-auto z-10 flex items-center justify-center">
