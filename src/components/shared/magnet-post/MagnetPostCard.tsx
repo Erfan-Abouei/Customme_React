@@ -1,7 +1,8 @@
-import type { Post } from "@/services/dto/magnet-post.dto"
+import type { Post } from "@/services/dto/magnet-post/magnet-post.dto"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
 import { useDispatch } from "react-redux"
 import { changeSelectedPost } from "@/reducers/magnet/magnetReducer"
+import { memo } from "react"
 
 const MagnetPostCard = (post: Post) => {
     const dispatch = useDispatch()
@@ -25,4 +26,4 @@ const MagnetPostCard = (post: Post) => {
     )
 }
 
-export default MagnetPostCard
+export default memo(MagnetPostCard)

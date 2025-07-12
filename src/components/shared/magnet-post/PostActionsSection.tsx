@@ -4,26 +4,31 @@ import { HiOutlineEye } from "react-icons/hi2";
 
 import PostActionsButton from "./PostActionsButton"
 import { useMovieModalContext } from "@/hooks/useMovieModalContext";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/store";
+import { formatNumber } from "@/utils/formatNumber";
 
 
 const PostActionsSection = () => {
+    const { selectedMagnet } = useSelector((state: RootState) => state.magnetPosts)
     const { setIsOpenCommentsSection } = useMovieModalContext()
+
     return (
         <div className="shrink-0 flex flex-col gap-y-3">
             {/* Like */}
             <PostActionsButton>
                 <HiOutlineHeart className="size-6" />
-                <span className=" font-iran-medium text-custom">5 هزار</span>
+                <span className=" font-iran-medium text-custom">{formatNumber(selectedMagnet?.likes_count as number)}</span>
             </PostActionsButton>
             {/* Comments */}
             <PostActionsButton onClick={() => setIsOpenCommentsSection(true)}>
                 <HiOutlineChatBubbleLeftEllipsis className="size-6" />
-                <span className=" font-iran-medium text-custom">53</span>
+                <span className=" font-iran-medium text-custom">{formatNumber(selectedMagnet?.comments_count as number)}</span>
             </PostActionsButton>
             {/* View Count */}
             <PostActionsButton>
                 <HiOutlineEye className="size-6" />
-                <span className=" font-iran-medium text-custom">540</span>
+                <span className=" font-iran-medium text-custom">{formatNumber(selectedMagnet?.views_count as number)}</span>
             </PostActionsButton>
         </div>
     )

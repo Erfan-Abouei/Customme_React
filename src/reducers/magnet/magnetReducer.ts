@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { InitialState } from "./types/initialState.type";
 import { getMagnetPosts } from "@/services/handle-magnet-post-request";
-import type { Post } from "@/services/dto/magnet-post.dto";
-import { useSearchParams } from "react-router";
+import type { Post } from "@/services/dto/magnet-post/magnet-post.dto";
 
 const initialState: InitialState = {
     magnets: [],
@@ -25,8 +24,6 @@ const magnetPostReducer = createSlice({
             state.isLoadingMagnets = false
         },
         changeSelectedPost: (state, { payload }: { payload: Post }) => {
-            const [searchParams, setSearchParams] = useSearchParams()
-            searchParams.append('activePost', payload.id)
             state.selectedMagnet = payload
         },
         savePosts: (state, { payload }: { payload: Post[] }) => {

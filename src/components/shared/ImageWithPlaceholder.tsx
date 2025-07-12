@@ -27,7 +27,7 @@ const ImageWithPlaceholder = ({
                 alt="Result"
                 className={`${resultImageClass} transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
                 onLoad={handleImageLoad}
-                onError={() => setIsLoading(false)}
+                onError={() => setIsLoading(true)}
             />
         </div>
     );

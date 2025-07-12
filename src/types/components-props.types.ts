@@ -1,3 +1,5 @@
+import type { Comment, CommentReply } from "@/services/dto/magnet-post/magnet-post-comments.dto"
+
 export type LogoComponentProps = {
     customLogoClass?: string
     customLogoTypeClass?: string
@@ -45,5 +47,6 @@ export type ImageWithPlaceholderProps = {
 export type PostActionsButtonProps = AccountButtonProps
 
 export type CommentBoxProp = {
-    customClass?: string
+    customClass?: string,
+    commentData: Comment | CommentReply
 }
