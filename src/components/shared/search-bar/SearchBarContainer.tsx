@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocationHash } from "@/hooks/useLocationHash";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import Type from '/Type.svg'

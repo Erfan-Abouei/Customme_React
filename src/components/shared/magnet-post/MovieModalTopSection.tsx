@@ -1,3 +1,4 @@
+import { memo } from "react"
 import PostAuthorInfoSection from "./PostAuthorInfoSection"
 
 const MovieModalTopSection = () => {
@@ -13,4 +14,4 @@ const MovieModalTopSection = () => {
     )
 }
 
-export default MovieModalTopSection
+export default memo(MovieModalTopSection)
