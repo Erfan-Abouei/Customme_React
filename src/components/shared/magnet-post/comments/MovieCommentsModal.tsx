@@ -1,10 +1,10 @@
 import { HiMiniXMark } from "react-icons/hi2"
 import CommentNotFound from "./CommentNotFound"
-import { useMagnetPostsContext } from "@/hooks/useMagnetPostsContext"
+import { useMovieModalContext } from "@/hooks/useMovieModalContext"
 import clsx from "clsx"
 
 const MovieCommentsModal = () => {
-    const { isOpenCommentsSection, setIsOpenCommentsSection } = useMagnetPostsContext()
+    const { isOpenCommentsSection, setIsOpenCommentsSection } = useMovieModalContext()
     return (
         <div className={clsx(`z-20 absolute bottom-0 left-0 right-0 w-full h-1/2 bg-white rounded-t-2xl transition-all`, {
             'translate-y-full': !isOpenCommentsSection,

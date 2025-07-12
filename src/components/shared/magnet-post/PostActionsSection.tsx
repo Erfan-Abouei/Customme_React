@@ -3,11 +3,11 @@ import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import { HiOutlineEye } from "react-icons/hi2";
 
 import PostActionsButton from "./PostActionsButton"
-import { useMagnetPostsContext } from "@/hooks/useMagnetPostsContext";
+import { useMovieModalContext } from "@/hooks/useMovieModalContext";
 
 
 const PostActionsSection = () => {
-    const { setIsOpenCommentsSection } = useMagnetPostsContext()
+    const { setIsOpenCommentsSection } = useMovieModalContext()
     return (
         <div className="shrink-0 flex flex-col gap-y-3">
             {/* Like */}

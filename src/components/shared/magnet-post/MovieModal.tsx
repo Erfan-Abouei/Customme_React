@@ -4,11 +4,11 @@ import { HiPlay } from "react-icons/hi2";
 import MovieModalTopSection from "./MovieModalTopSection";
 import MovieModalBottomSection from './MovieModalBottomSection';
 import MovieCommentsModal from './comments/MovieCommentsModal';
-import { useMagnetPostsContext } from '@/hooks/useMagnetPostsContext';
+import { useMovieModalContext } from '@/hooks/useMovieModalContext';
 import clsx from 'clsx';
 
 const MovieModal = () => {
-    const { isOpenCommentsSection, setIsOpenCommentsSection } = useMagnetPostsContext()
+    const { isOpenCommentsSection, setIsOpenCommentsSection } = useMovieModalContext()
     const videoElement = useRef<HTMLVideoElement>(null);
     const [isPlay, setIsPlay] = useState<boolean>(false);
     const [currentTime, setCurrentTime] = useState<number>(0);

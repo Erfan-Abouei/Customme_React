@@ -1,7 +1,7 @@
 import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import LoadingScreen from './components/layout/LoadingScreen.tsx'
-import MagnetPostsProvider from '@/contexts/magnetPostsContext';
+import MagnetPostsProvider from '@/contexts/movieModalContext.tsx';
 import App from './App.tsx'
 import store from './store/index.tsx'
 import { Provider } from 'react-redux'
