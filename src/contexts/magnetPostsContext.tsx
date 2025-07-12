@@ -1,7 +1,11 @@
-import { useState } from "react";
-import { createContext } from "vm";
+import { useState, createContext } from "react";
 
-const magnetPostsContext = createContext()
+interface MagnetPostsProviderType {
+    isOpenCommentsSection: boolean
+    setIsOpenCommentsSection: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const magnetPostsContext = createContext<MagnetPostsProviderType | null>(null)
 
 const MagnetPostsProvider = ({ children }: { children: React.ReactNode }) => {
     const [isOpenCommentsSection, setIsOpenCommentsSection] = useState(false)

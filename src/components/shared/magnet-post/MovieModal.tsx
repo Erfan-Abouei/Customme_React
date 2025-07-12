@@ -4,8 +4,11 @@ import { HiPlay } from "react-icons/hi2";
 import MovieModalTopSection from "./MovieModalTopSection";
 import MovieModalBottomSection from './MovieModalBottomSection';
 import MovieCommentsModal from './comments/MovieCommentsModal';
+import { useMagnetPostsContext } from '@/hooks/useMagnetPostsContext';
+import clsx from 'clsx';
 
 const MovieModal = () => {
+    const { isOpenCommentsSection, setIsOpenCommentsSection } = useMagnetPostsContext()
     const videoElement = useRef<HTMLVideoElement>(null);
     const [isPlay, setIsPlay] = useState<boolean>(false);
     const [currentTime, setCurrentTime] = useState<number>(0);
@@ -81,7 +84,13 @@ const MovieModal = () => {
             <div className="absolute inset-0 size-full movie-modal__content--overlay"></div>
 
             {/* Dynamic Overlay (Visible when the comment section is open) */}
-            <div className="visible opacity-100 transition-all z-20 absolute inset-0 size-full bg-black/50"></div>
+            <div onClick={() => setIsOpenCommentsSection(false)} className={clsx(
+                'transition-all z-20 absolute inset-0 size-full bg-black/50',
+                {
+                    'visible opacity-100': isOpenCommentsSection,
+                    'invisible opacity-0': !isOpenCommentsSection
+                }
+            )}></div>
             {/* ProgressBar */}
             <div onClick={handleSeek} className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800 cursor-pointer">
                 {/* Line */}
