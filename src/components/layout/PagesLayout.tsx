@@ -3,13 +3,15 @@ import { Outlet, useMatch } from "react-router"
 import Header from "./Header"
 import WebsiteAlert from "../ui/WebsiteAlert"
 import Overlay from "../shared/Overlay"
-import MainMenu from "./MainMenu"
+import MagnetSection from "./MagnetSection"
 
 import { useProgress } from "@/hooks/useProgress"
+import { useOfflineAlert } from "@/hooks/useOfflineAlert"
 
 const PagesLayout = () => {
     const isHomePage = useMatch('/')
     useProgress()
+    useOfflineAlert()
 
     return (
         <>
@@ -17,8 +19,7 @@ const PagesLayout = () => {
             {isHomePage && <WebsiteAlert />}
             <Header />
 
-            <MainMenu />
-
+            <MagnetSection />
             <main>
                 <Outlet />
             </main>

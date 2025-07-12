@@ -1,21 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { addRecentlySearch } from '@/utils/recentlySerach';
 import { HiMiniXMark } from "react-icons/hi2";
 import SearchResultSection from './SearchResultSection';
 import RecentlySearchSection from './RecentlySearchSection';
 import TrendsSearchSection from './TrendsSearchSection';
 import { motion } from 'framer-motion';
+import { useOneTime } from '@/hooks/useOneTime';
 
 const SearchBar = () => {
     const [search, setSearch] = useState<string>("")
     const inputRef = useRef(null)
 
-    useEffect(() => {
+    const focusOnStart = () => {
         if (inputRef.current) {
             // @ts-ignore
             inputRef.current.focus()
         }
-    }, [])
+    }
+    useOneTime(focusOnStart)
 
     // Handle search input (when Enter key is pressed)
     const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {

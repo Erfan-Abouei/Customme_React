@@ -8,16 +8,18 @@ import { Toaster } from 'react-hot-toast'
 import 'nprogress/nprogress.css';
 
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Suspense fallback={<LoadingScreen />} >
       <Provider store={store}>
-        <App />
+          <App />
       </Provider>
       <Toaster
-        position="top-center"
-        reverseOrder={false}
+        position="bottom-left"
       />
+      {/* Fake element (for apply tailwindcss dynamic class ) */}
+      <div className="z-30"></div>
     </Suspense>
   </StrictMode>,
 )
