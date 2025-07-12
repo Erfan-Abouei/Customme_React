@@ -10,6 +10,7 @@ import MagnetPostCard from "../shared/magnet-post/MagnetPostCard"
 import { useState } from "react"
 import { useLocationHash } from "@/hooks/useLocationHash"
 import MovieModal from "../shared/magnet-post/MovieModal"
+import MovieModalProvider from "@/contexts/movieModalContext"
 
 
 const MainMenu = () => {
@@ -31,7 +32,9 @@ const MainMenu = () => {
                         {isLoadingMagnets ? magnetPostCardLoader : magnetPosts}
                     </div>
                 </div>
-                {isShowMovieModal && <MovieModal />}
+                {isShowMovieModal && <MovieModalProvider>
+                    <MovieModal />
+                </MovieModalProvider>}
             </section>
         )
     );

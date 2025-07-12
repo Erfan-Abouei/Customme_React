@@ -25,7 +25,6 @@ export const getMagnetPosts = async (retryCount: number = 3): Promise<MagnetPost
 export const getPostComments = async (postId: number, page: number = 1): Promise<CommentsResponse | null> => {
     try {
         const response: AxiosResponse<any> = await api.get(`magnet/posts/${postId}/comments/?postId=${postId}&page=${page}`)
-        console.log(response.data)
         return response.data
     } catch (error) {
         showToast(ERROR_MESSAGES.SERVER_ERROR, 'error');
