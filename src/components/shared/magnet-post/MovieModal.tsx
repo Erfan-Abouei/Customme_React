@@ -43,8 +43,7 @@ const MovieModal = () => {
     }, [currentTime, duration]);
 
     // Toggle play/pause
-    const togglePlay = useCallback((e: any) => {
-        console.log("TEst")
+    const togglePlay = useCallback(() => {
         if (isPlay) {
             videoElement.current?.pause();
         } else {
