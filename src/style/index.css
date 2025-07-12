@@ -53,10 +53,11 @@
 
   .page__scroll--custom::-webkit-scrollbar {
     height: 2px;
+    width: 2px;
   }
 
   .page__scroll--custom::-webkit-scrollbar-thumb {
-    background-color: var(--color-primary);
+    background-color: var(--color-gray-300);
   }
 
   .page__scroll--hidden::-webkit-scrollbar {

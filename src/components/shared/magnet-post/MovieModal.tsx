@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { HiPlay } from "react-icons/hi2";
 import MovieModalTopSection from "./MovieModalTopSection";
 import MovieModalBottomSection from './MovieModalBottomSection';
+import MovieCommentsModal from './comments/MovieCommentsModal';
 
 const MovieModal = () => {
     const videoElement = useRef<HTMLVideoElement>(null);
@@ -66,6 +67,7 @@ const MovieModal = () => {
             {/* Video */}
             <div className="absolute inset-0 size-full">
                 <video
+                    onLoadedData={() => console.log("Loaded")}
                     ref={videoElement}
                     src="/video1.mp4"
                     loop
@@ -75,13 +77,15 @@ const MovieModal = () => {
                 ></video>
             </div>
 
-            {/* Overlay */}
+            {/* Background Overlay ( Static ) */}
             <div className="absolute inset-0 size-full movie-modal__content--overlay"></div>
 
+            {/* Dynamic Overlay (Visible when the comment section is open) */}
+            <div className="visible opacity-100 transition-all z-20 absolute inset-0 size-full bg-black/50"></div>
             {/* ProgressBar */}
             <div onClick={handleSeek} className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800 cursor-pointer">
                 {/* Line */}
-                <div className="transition-all h-full bg-white" style={{ width: progressBarNumber + '%' }}></div>
+                <div className="transition-all h-full bg-primary" style={{ width: progressBarNumber + '%' }}></div>
             </div>
 
             {/* Play Button */}
@@ -91,6 +95,9 @@ const MovieModal = () => {
                     className="cursor-pointer text-white size-20"
                 />
             </div>)}
+
+            {/* Comments Modal */}
+            <MovieCommentsModal />
         </motion.div>
     );
 };

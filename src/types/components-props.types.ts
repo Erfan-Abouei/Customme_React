@@ -43,3 +43,7 @@ export type ImageWithPlaceholderProps = {
 }
 
 export type PostActionsButtonProps = AccountButtonProps
+
+export type CommentBoxProp = {
+    customClass?: string
+}
