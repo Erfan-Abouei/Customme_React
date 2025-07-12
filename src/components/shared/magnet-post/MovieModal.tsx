@@ -43,7 +43,8 @@ const MovieModal = () => {
     }, [currentTime, duration]);
 
     // Toggle play/pause
-    const togglePlay = useCallback(() => {
+    const togglePlay = useCallback((e: any) => {
+        console.log("TEst")
         if (isPlay) {
             videoElement.current?.pause();
         } else {
@@ -81,7 +82,8 @@ const MovieModal = () => {
             </div>
 
             {/* Background Overlay ( Static ) */}
-            <div className="absolute inset-0 size-full movie-modal__content--overlay"></div>
+            <div onClick={togglePlay}
+                className="absolute inset-0 size-full movie-modal__content--overlay"></div>
 
             {/* Dynamic Overlay (Visible when the comment section is open) */}
             <div onClick={() => setIsOpenCommentsSection(false)} className={clsx(
