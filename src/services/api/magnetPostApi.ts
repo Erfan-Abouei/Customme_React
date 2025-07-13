@@ -1,11 +1,11 @@
 import api from "./api"
 
 import { type AxiosResponse } from "axios"
-import type { MagnetPostsResponse } from "./dto/magnet-post/magnet-post.dto"
+import type { MagnetPostsResponse } from "../dto/magnet-post/magnet-post.dto"
 
 import { ERROR_MESSAGES } from "@/constants/ERROR_MESSAGE"
 import { showToast } from "@/utils/showToast"
-import type { CommentsResponse } from "./dto/magnet-post/magnet-post-comments.dto"
+import type { CommentsResponse } from "../dto/magnet-post/magnet-post-comments.dto"
 
 export const getMagnetPosts = async (retryCount: number = 3): Promise<MagnetPostsResponse | null> => {
     for (let i = 0; i < retryCount; i++) {

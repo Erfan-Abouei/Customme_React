@@ -12,7 +12,9 @@ export const getTrendSearch = async (): Promise<SearchDTO | null> => {
         return response.data;
     } catch (error) {
         showToast(ERROR_MESSAGES.SERVER_ERROR, 'error')
-        return null;
+        if (error instanceof Error) {
+            return new Error(error.message)
+        }
     }
 };
 
