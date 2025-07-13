@@ -1,23 +1,12 @@
-import type SearchDTO from "@/services/dto/search.dto"
-import { getTrendSearch } from "@/services/handle-search-request"
-import { memo, useState } from "react"
+import { memo } from "react"
 import SearchItemLoader from "./SearchItemLoader"
 import SearchItem from "./SearchItem"
 import NotFoundText from "./NotFoundText"
-import { useOneTime } from "@/hooks/useOneTime"
+import { useTrendsSearchQuery } from "@/services/query/searchQueries"
 
 const TrendsSearchSection = () => {
 
-    const [isLoadingTrendsSearch, setIsLoadingTrendsSearch] = useState<boolean>(false)
-    const [trendsSearch, setTrendsSearch] = useState<SearchDTO | null>(null)
-
-    const fetchTrendsSearch = async (): Promise<void> => {
-        setIsLoadingTrendsSearch(true)
-        const trendsSearchData = await getTrendSearch()
-        setTrendsSearch(trendsSearchData)
-        setIsLoadingTrendsSearch(false)
-    }
-    useOneTime(fetchTrendsSearch)
+    const { data: trendsSearch, isLoading: isLoadingTrendsSearch } = useTrendsSearchQuery()
 
     const trendsSearchLoader = Array.from({ length: 3 }).map((_, i) => <SearchItemLoader key={i} />)
 

@@ -1,38 +1,14 @@
-import type SearchDTO from "@/services/dto/search.dto";
 import type { CategoryItem } from "@/services/dto/search.dto";
 import type { SearchResultSectionProp } from "@/types/components-props.types";
 
-import { searchItem } from "@/services/handle-search-request";
-import { useEffect, useState } from "react";
 import SearchResultItem from "./SearchResultItem";
 import SearchResultItemLoader from "./SearchResultItemLoader";
+import { useSearchItemQuery } from "@/services/query/searchQueries";
+import { useDebounce } from "@/hooks/useDebounce";
 
 const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
-    const [isLoadingAutoComplete, setIsLoadingAutoComplete] = useState(false);
-    const [autoComplete, setAutoComplete] = useState<SearchDTO | null>(null);
-
-    useEffect(() => {
-        if (!searchValue || searchValue.trim().length === 0) {
-            setAutoComplete(null);
-            return;
-        }
-
-        const controller = new AbortController();
-
-        const fetchAutoComplete = async () => {
-            setIsLoadingAutoComplete(true)
-            const data = await searchItem(searchValue, controller.signal);
-            setAutoComplete(data);
-            setIsLoadingAutoComplete(false)
-        };
-
-        const timeout = setTimeout(fetchAutoComplete, 500);
-
-        return () => {
-            clearTimeout(timeout);
-            controller.abort();
-        };
-    }, [searchValue]);
+    const [debouncedSearchValue] = useDebounce(searchValue, 500)
+    const { data: autoComplete, isLoading: isLoadingAutoComplete } = useSearchItemQuery(debouncedSearchValue)
 
     const autoCompleteCategoryTitle = autoComplete?.data?.advance_links?.[0]?.category?.title_fa || '';
     const autoCompleteItems = Array.isArray(autoComplete?.data?.categories)

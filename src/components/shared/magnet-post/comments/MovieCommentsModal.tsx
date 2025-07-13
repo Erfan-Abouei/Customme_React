@@ -1,10 +1,9 @@
-import { HiMiniXMark } from "react-icons/hi2";
 import CommentNotFound from "./CommentNotFound";
 import { useMovieModalContext } from "@/hooks/useMovieModalContext";
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 import type { RootState } from "@/store";
-import { getPostComments } from "@/services/handle-magnet-post-request";
+import { getPostComments } from "@/services/api/magnetPostApi";
 import { memo, useCallback, useRef, useState, type SyntheticEvent } from "react";
 import { useOneTime } from "@/hooks/useOneTime";
 import type { CommentsResponse } from "@/services/dto/magnet-post/magnet-post-comments.dto";

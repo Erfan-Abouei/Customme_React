@@ -1,18 +1,20 @@
 import { useQuery } from "@tanstack/react-query"
 import { getTrendSearch, searchItem } from "../api/searchApi"
+import type SearchDTO from "../dto/search.dto"
 
 export const useTrendsSearchQuery = () => {
-    return useQuery({
+    return useQuery<SearchDTO>({
         queryKey: ['trends_search'],
         queryFn: getTrendSearch,
-        staleTime: 60 * 60 * 10000
+        staleTime: 60 * 60 * 10000,
+        retry: 3
     })
 }
 
-export const useSearchItemQuery = (q: string, signal?: AbortSignal) => {
-    return useQuery({
+export const useSearchItemQuery = (q: string) => {
+    return useQuery<SearchDTO>({
         queryKey: ['search_item', q],
-        queryFn: () => searchItem(q, signal),
+        queryFn: ({ signal }) => searchItem(q, signal),
         enabled: !!q
     })
 }
