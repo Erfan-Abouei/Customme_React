@@ -19,7 +19,7 @@ export const getMagnetPosts = async (): Promise<MagnetPostsResponse> => {
 
 export const getPostComments = async (postId: number, page: number = 1): Promise<CommentsResponse> => {
     try {
-        const response: AxiosResponse<any> = await api.get(`magnet/posts/${postId}/comments/?postId=${postId}&page=${page}`)
+        const response: AxiosResponse<CommentsResponse> = await api.get(`magnet/posts/${postId}/comments/?postId=${postId}&page=${page}`)
         return response.data
     } catch (error) {
         showToast(ERROR_MESSAGES.SERVER_ERROR, 'error');

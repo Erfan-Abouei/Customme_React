@@ -2,15 +2,25 @@ import { useForm, type SubmitHandler } from "react-hook-form"
 import InputError from "./InputError";
 import clsx from "clsx";
 import type { LoginFormProp } from "@/types/components-props.types";
+import { loginWithOtp } from "@/services/api/otpApi";
+import type { OtpRequestBody } from "@/services/dto/otp-login.dto";
+import { useSearchParams } from "react-router";
 
 type Inputs = {
     phoneNumber: string
 }
 
 const LoginForm = ({ setLoginStep }: LoginFormProp) => {
+    const [searchParams] = useSearchParams()
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = (data) => {
-
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        const otpLoginBody: OtpRequestBody = {
+            backUrl: searchParams.get('backUrl') || '',
+            hash: null,
+            otp_call: false,
+            username: data.phoneNumber
+        }
+        const otpResponse = await loginWithOtp(otpLoginBody)
     }
 
     return (

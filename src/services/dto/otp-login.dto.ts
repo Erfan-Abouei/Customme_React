@@ -12,7 +12,7 @@ export type OtpDto = {
 
 export type OtpRequestBody = {
     backUrl: string
-    hash: string
+    hash: string | null
     otp_call: boolean
     username: string
 }

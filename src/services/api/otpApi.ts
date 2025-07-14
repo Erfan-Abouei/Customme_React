@@ -5,7 +5,6 @@ import api from './api';
 export const loginWithOtp = async (requestBody: OtpRequestBody): Promise<OtpDto | void> => {
     try {
         const response = await api.post<OtpDto>('/user/authenticate/', requestBody);
-
         if (response.data.message) throw new Error(response.data.message || 'خطای ناشناخته');
 
         return response.data;
