@@ -3,7 +3,6 @@ import { lazy } from "react";
 
 const PagesLayout = lazy(() => import('@/components/layout/PagesLayout'))
 const HomePage = lazy(() => import('@/pages/home/index'))
-const LoginPage = lazy(() => import('@/pages/login/index'))
 
 const routes = createBrowserRouter([
     {
@@ -14,10 +13,6 @@ const routes = createBrowserRouter([
                 index: true,
                 element: <HomePage />
             },
-            {
-                path: "login",
-                element: <LoginPage />
-            }
         ]
     }
 ])
