@@ -1,10 +1,9 @@
 import { HiMiniXMark } from "react-icons/hi2"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
-import { useSelector } from "react-redux"
-import type { RootState } from "@/store"
+import { useMovieModalContext } from "@/hooks/useMovieModalContext"
 
 const PostAuthorInfoSection = () => {
-    const { selectedMagnet } = useSelector((state: RootState) => state.magnetPosts)
+    const { selectedMagnet } = useMovieModalContext()
 
     return (
         <div className="flex items-start gap-x-1" >

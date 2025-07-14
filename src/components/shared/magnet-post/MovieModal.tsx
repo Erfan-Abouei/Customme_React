@@ -1,20 +1,44 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
+import { useSearchParams } from 'react-router';
 import { motion } from 'framer-motion';
 import { HiPlay } from "react-icons/hi2";
 import clsx from 'clsx';
 
-import type { RootState } from '@/store';
+import type { MagnetPostsResponse } from '@/services/dto/magnet-post/magnet-post.dto';
 import MovieModalTopSection from "./MovieModalTopSection";
 import MovieModalBottomSection from './MovieModalBottomSection';
 import MovieCommentsModal from './comments/MovieCommentsModal';
 import { useMovieModalContext } from '@/hooks/useMovieModalContext';
 import useFormatVideo from '@/hooks/useFormatVideo';
-import { useSelector } from 'react-redux';
 import LogoComponent from '@/components/ui/LogoComponent';
 
 const MovieModal = () => {
+    const queryClient = useQueryClient()
+    const { selectedMagnet, setSelectedMagnet } = useMovieModalContext()
+    const [searchParams] = useSearchParams()
+    const selectedPostId = searchParams.get('selectedPost')
+
+    // Get Post 
+    useEffect(() => {
+        if (!selectedPostId) {
+            setSelectedMagnet(undefined);
+            return;
+        }
+
+        const postsList = queryClient.getQueryData<MagnetPostsResponse>(['magnet_posts']);
+
+        if (Array.isArray(postsList?.data) || !postsList) {
+            setSelectedMagnet(undefined);
+            location.hash = ""
+            return;
+        }
+
+        const filteredPost = postsList?.data.posts.find(post => post.id === selectedPostId);
+        setSelectedMagnet(filteredPost);
+
+    }, [queryClient, selectedPostId]);
     // Redux & Context
-    const { selectedMagnet } = useSelector((state: RootState) => state.magnetPosts);
     const { isOpenCommentsSection, setIsOpenCommentsSection } = useMovieModalContext();
 
     // Refs & States

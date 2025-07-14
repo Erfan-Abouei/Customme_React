@@ -6,7 +6,7 @@ import { useTrendsSearchQuery } from "@/services/query/searchQueries"
 
 const TrendsSearchSection = () => {
 
-    const { data: trendsSearch, isLoading: isLoadingTrendsSearch } = useTrendsSearchQuery()
+    const { data: trendsSearch, isLoading: isLoadingTrendsSearch, isError } = useTrendsSearchQuery()
 
     const trendsSearchLoader = Array.from({ length: 3 }).map((_, i) => <SearchItemLoader key={i} />)
 
@@ -21,7 +21,7 @@ const TrendsSearchSection = () => {
             <div className="flex items-center gap-4 flex-wrap">
                 {isLoadingTrendsSearch && trendsSearchLoader}
                 {!isLoadingTrendsSearch && trendsSearchItems.length > 0 && trendsSearchItems}
-                {!isLoadingTrendsSearch && trendsSearchItems.length === 0 && (<NotFoundText message="چیزی پیدا نشد" />)}
+                {(!isLoadingTrendsSearch && trendsSearchItems.length === 0) || isError && (<NotFoundText message="چیزی پیدا نشد" />)}
             </div>
         </div>
     )

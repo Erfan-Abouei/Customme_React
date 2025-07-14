@@ -51,7 +51,7 @@ const magnetPostReducer = createSlice({
 })
 
 export const fetchPost = createAsyncThunk('magnetPost/fetchPost', async () => {
-    const data = await getMagnetPosts(3)
+    const data = await getMagnetPosts()
     return data
 })
 

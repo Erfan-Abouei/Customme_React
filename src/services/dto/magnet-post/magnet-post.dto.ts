@@ -47,7 +47,7 @@ type Product = {
 };
 
 export type Post = {
-    id: number;
+    id: number | string;
     title: string;
     caption?: string;
     type?: string;

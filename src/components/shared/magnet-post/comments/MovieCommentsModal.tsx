@@ -1,73 +1,28 @@
 import CommentNotFound from "./CommentNotFound";
 import { useMovieModalContext } from "@/hooks/useMovieModalContext";
 import clsx from "clsx";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store";
-import { getPostComments } from "@/services/api/magnetPostApi";
-import { memo, useCallback, useRef, useState, type SyntheticEvent } from "react";
-import { useOneTime } from "@/hooks/useOneTime";
-import type { CommentsResponse } from "@/services/dto/magnet-post/magnet-post-comments.dto";
+import { memo, type SyntheticEvent } from "react";
 import CommentContainer from "./CommentContainer";
 import CommentLoader from "./CommentLoader";
 import CommentsModalHeader from "./CommentsModalHeader";
+import { usePostCommentsQuery } from "@/services/query/magnetPostsQueries";
 
 const MovieCommentsModal = () => {
-    const selectedPostId = useSelector(
-        (state: RootState) => state.magnetPosts.selectedMagnet?.id
-    );
+    const { selectedMagnet } = useMovieModalContext();
+    const { data: comments, fetchNextPage, isFetchingNextPage, hasNextPage } = usePostCommentsQuery(selectedMagnet?.id as number);
     const { isOpenCommentsSection } = useMovieModalContext();
 
-    const [comments, setComments] = useState<CommentsResponse | null>(null);
-    const [hasMore, setHasMore] = useState(true);
-    const page = useRef<number>(1);
-    const isLoading = useRef<boolean>(false);
     const handleInfinityScroll = (e: SyntheticEvent) => {
         const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;
-        if (scrollTop + clientHeight >= scrollHeight - 5 && hasMore) {
-            fetchPostComments();
+        if (scrollTop + clientHeight >= scrollHeight - 5 && hasNextPage && !isFetchingNextPage) {
+            fetchNextPage();
         }
-    }
-
-    const fetchPostComments = useCallback(async () => {
-        if (!selectedPostId || isLoading.current || !hasMore) return;
-        isLoading.current = true;
-
-        const data = await getPostComments(selectedPostId, page.current);
-        if (!data) {
-            setHasMore(false);
-            isLoading.current = false;
-            return;
-        }
-
-        setComments((prev) => {
-            if (!prev) return data;
-            return {
-                ...prev,
-                data: {
-                    ...prev.data,
-                    comments: [...prev.data.comments, ...data.data.comments],
-                    pager: data.data.pager,
-                },
-            };
-        });
-
-        const totalPages = data.data.pager.total_pages;
-        if (page.current >= totalPages) {
-            setHasMore(false);
-        } else {
-            page.current++;
-        }
-
-        isLoading.current = false;
-    }, [selectedPostId, hasMore]);
-
-    useOneTime(fetchPostComments);
+    };
 
     const commentLoader = Array.from({ length: 3 }).map((_, i) => <CommentLoader key={i} />);
-    const commentsResult = Array.isArray(comments?.data.comments)
-        ? comments.data.comments.map((comment) => (
-            <CommentContainer commentData={comment} key={comment.id} />
-        ))
+
+    const allComments = Array.isArray(comments?.pages)
+        ? comments.pages.flatMap(page => Array.isArray(page.data?.comments) ? page.data.comments : [])
         : [];
 
     return (
@@ -80,21 +35,21 @@ const MovieCommentsModal = () => {
                 }
             )}
         >
-            {/* Comments Header */}
             <CommentsModalHeader />
 
-            {/* Comment Content */}
             <div
                 onScroll={handleInfinityScroll}
                 className="border-8 border-transparent page__scroll--custom overflow-auto flex flex-col gap-y-4 px-2 h-[calc(100%-48.8px)]"
             >
                 {!comments && commentLoader}
 
-                {comments && comments.data.comments.length === 0 && !hasMore && <CommentNotFound />}
+                {comments && allComments.length === 0 && !hasNextPage && <CommentNotFound />}
 
-                {comments && commentsResult}
+                {comments && allComments.map(comment => (
+                    <CommentContainer commentData={comment} key={comment.id} />
+                ))}
 
-                {hasMore && comments && commentLoader}
+                {hasNextPage && comments && commentLoader}
             </div>
         </div>
     );
