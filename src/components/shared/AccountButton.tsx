@@ -1,10 +1,11 @@
 import type { AccountButtonProps } from "@/types/components-props.types"
+import { Link } from "react-router"
 
-const AccountButton = ({ children, onClick }: AccountButtonProps) => {
+const AccountButton = ({ children, toPath }: AccountButtonProps) => {
     return (
-        <button onClick={onClick} className="cursor-pointer h-10 px-5.5 max-xl:px-3 flex items-center gap-x-1 text-gray-900 text-xs font-iran-medium transition-colors hover:text-gray-950">
+        <Link to={toPath} className="cursor-pointer h-10 px-5.5 max-xl:px-3 flex items-center gap-x-1 text-gray-900 text-xs font-iran-medium transition-colors hover:text-gray-950">
             {children}
-        </button>
+        </Link>
     )
 }
 

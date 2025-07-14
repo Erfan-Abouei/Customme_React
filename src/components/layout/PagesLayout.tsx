@@ -1,4 +1,4 @@
-import { Outlet, useMatch } from "react-router"
+import { Outlet, useMatch, useMatches } from "react-router"
 
 import Header from "./Header"
 import WebsiteAlert from "../ui/WebsiteAlert"
@@ -11,6 +11,7 @@ import MagnetSectionProvider from "@/contexts/magnetSectionContext"
 
 const PagesLayout = () => {
     const isHomePage = useMatch('/')
+    const isLoginPage = useMatch('/login')
     useProgress()
     useOfflineAlert()
 
@@ -18,11 +19,14 @@ const PagesLayout = () => {
         <>
 
             {isHomePage && <WebsiteAlert />}
-            <Header />
+            {!isLoginPage && <>
+                <Header />
 
-            <MagnetSectionProvider>
-                <MagnetSection />
-            </MagnetSectionProvider>
+                <MagnetSectionProvider>
+                    <MagnetSection />
+                </MagnetSectionProvider>
+            </>
+            }
             <main>
                 <Outlet />
             </main>
