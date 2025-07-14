@@ -10,7 +10,7 @@ export type OtpDto = {
     };
 }
 
-export type OtpRequestBody = {
+export type SendOtpRequestBody = {
     backUrl: string
     hash: string | null
     otp_call: boolean

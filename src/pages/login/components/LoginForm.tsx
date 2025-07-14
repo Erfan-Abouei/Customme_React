@@ -2,8 +2,8 @@ import { useForm, type SubmitHandler } from "react-hook-form"
 import InputError from "./InputError";
 import clsx from "clsx";
 import type { LoginFormProp } from "@/types/components-props.types";
-import { loginWithOtp } from "@/services/api/otpApi";
-import type { OtpRequestBody } from "@/services/dto/otp-login.dto";
+import { sendOtp } from "@/services/api/otpApi";
+import type { SendOtpRequestBody } from "@/services/dto/otp-login.dto";
 import { useSearchParams } from "react-router";
 import { useState } from "react";
 import Spinner from "@/components/ui/Spinner";
@@ -23,14 +23,14 @@ const LoginForm = ({ setLoginStep }: LoginFormProp) => {
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         setIsLoading(true)
         try {
-            const otpLoginBody: OtpRequestBody = {
+            const otpLoginBody: SendOtpRequestBody = {
                 backUrl: searchParams.get('backUrl') || '/',
                 hash: null,
                 otp_call: false,
                 username: data.phoneNumber
             }
 
-            const otpResponse = await loginWithOtp(otpLoginBody)
+            const otpResponse = await sendOtp(otpLoginBody)
 
             if (otpResponse?.status === 200) {
                 setLoginStep(2)

@@ -46,7 +46,7 @@ const OtpForm = () => {
             const checkOtpStatus = await checkOtpCode(checkOtpData);
 
             if (checkOtpStatus?.status === 200) {
-                navigate('/', { replace: true });
+                navigate(searchParams.get('backUrl') || '/', { replace: true });
                 reset();
             }
             else {

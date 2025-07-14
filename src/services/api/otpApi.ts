@@ -1,15 +1,10 @@
-import type { CheckOtpRequestBody, OtpDto, OtpRequestBody } from '../dto/otp-login.dto';
+import type { CheckOtpRequestBody, OtpDto, SendOtpRequestBody } from '../dto/otp-login.dto';
 import api from './api';
 import { handleError } from './handleErrorApi';
 
-// backUrl
-// code
-// type
-// username
-
-export const loginWithOtp = async (requestBody: OtpRequestBody): Promise<OtpDto | void> => {
+export const sendOtp = async (sendOtpRequestBody: SendOtpRequestBody): Promise<OtpDto | void> => {
     try {
-        const response = await api.post<OtpDto>('/user/authenticate/', requestBody);
+        const response = await api.post<OtpDto>('/user/authenticate/', sendOtpRequestBody);
         if (response.data.status !== 200) {
             throw new Error(response.data.message);
         }
