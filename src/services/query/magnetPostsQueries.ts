@@ -20,14 +20,6 @@ export const usePostCommentsQuery = (postId: number) => {
         retry: 3,
         enabled: !!postId,
         getNextPageParam: (lastPage) => {
-            if (
-                lastPage?.status !== 200 ||
-                !lastPage.data ||
-                !lastPage.data.pager
-            ) {
-                return undefined;
-            }
-
             const current: number = lastPage.data.pager.current_page;
             const total: number = lastPage.data.pager.total_pages;
 
