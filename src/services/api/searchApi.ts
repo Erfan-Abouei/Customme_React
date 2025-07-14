@@ -5,13 +5,14 @@ import api from "./api";
 
 import { ERROR_MESSAGES } from "@/constants/ERROR_MESSAGE";
 import { showToast } from "@/utils/showToast";
+import { handleError } from "./handleErrorApi";
 
 export const getTrendSearch = async (): Promise<SearchDTO> => {
     try {
         const response: AxiosResponse<SearchDTO> = await api.get("/autocomplete/");
         return response.data;
     } catch (error) {
-        showToast(ERROR_MESSAGES.SERVER_ERROR, 'error')
+        handleError(error)
         throw error
     }
 };
@@ -27,7 +28,7 @@ export const searchItem = async (q: string, signal?: AbortSignal): Promise<Searc
         }
         return response.data;
     } catch (error) {
-        showToast(ERROR_MESSAGES.SERVER_ERROR, 'error')
-        throw error;
+        handleError(error)
+        throw error
     }
 };

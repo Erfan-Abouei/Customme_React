@@ -11,6 +11,7 @@ import MagnetSectionProvider from "@/contexts/magnetSectionContext"
 
 const PagesLayout = () => {
     const isHomePage = useMatch('/')
+    const isLoginPage = useMatch('/login')
     useProgress()
     useOfflineAlert()
 
@@ -18,11 +19,14 @@ const PagesLayout = () => {
         <>
 
             {isHomePage && <WebsiteAlert />}
-            <Header />
+            {!isLoginPage && <>
+                <Header />
 
-            <MagnetSectionProvider>
-                <MagnetSection />
-            </MagnetSectionProvider>
+                <MagnetSectionProvider>
+                    <MagnetSection />
+                </MagnetSectionProvider>
+            </>
+            }
             <main>
                 <Outlet />
             </main>

@@ -1,9 +1,8 @@
+import { createBrowserRouter } from "react-router";
 import { lazy } from "react";
 
 const PagesLayout = lazy(() => import('@/components/layout/PagesLayout'))
 const HomePage = lazy(() => import('@/pages/home/index'))
-
-import { createBrowserRouter } from "react-router";
 
 const routes = createBrowserRouter([
     {
@@ -13,7 +12,7 @@ const routes = createBrowserRouter([
             {
                 index: true,
                 element: <HomePage />
-            }
+            },
         ]
     }
 ])

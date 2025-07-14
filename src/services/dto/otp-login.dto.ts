@@ -1,0 +1,25 @@
+export type OtpDto = {
+    status: number;
+    message?: string;
+    data?: {
+        phone: string;
+        has_account: boolean;
+        login_method: string;
+        sms_ttl: number;
+        has_password: boolean;
+    };
+}
+
+export type SendOtpRequestBody = {
+    backUrl: string
+    hash: string | null
+    otp_call: boolean
+    username: string
+}
+
+export type CheckOtpRequestBody = {
+    backUrl: string
+    code: string
+    type: "otp"
+    username: string
+}

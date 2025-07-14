@@ -30,8 +30,8 @@ const Header = () => {
                         {/* Action Button */}
                         <div className="max-md:hidden flex items-center">
                             {/* Login Button */}
-                            {true && <AccountButton><HiArrowRightEndOnRectangle className="size-6" /><span>ورود | ثبت نام</span></AccountButton>}
-                            {true && <AccountButton>
+                            {true && <AccountButton toPath="/login"><HiArrowRightEndOnRectangle className="size-6" /><span>ورود | ثبت نام</span></AccountButton>}
+                            {true && <AccountButton toPath="/cart">
                                 <span className="relative">
                                     <HiOutlineShoppingCart className="size-6" />
                                     {/* Cart Items Count */}

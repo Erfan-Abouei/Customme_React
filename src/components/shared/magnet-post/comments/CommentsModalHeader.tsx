@@ -1,4 +1,4 @@
-import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext";
+import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext";
 import { HiMiniXMark } from "react-icons/hi2";
 
 const CommentsModalHeader = () => {

@@ -19,7 +19,7 @@ export type RecentlySearchSectionProps = SearchBarProp
 
 export type AccountButtonProps = {
     children: React.ReactNode,
-    onClick?: () => void
+    toPath: string
 }
 
 export type DesktopSearchBarProps = {
@@ -44,9 +44,25 @@ export type ImageWithPlaceholderProps = {
     resultImageClass?: string;
 }
 
-export type PostActionsButtonProps = AccountButtonProps
+export type PostActionsButtonProps = {
+    children: React.ReactNode,
+    onClick?: () => void
+}
 
 export type CommentBoxProp = {
     customClass?: string,
     commentData: Comment | CommentReply
+}
+
+export type LoginFormProp = {
+    setLoginStep: React.Dispatch<React.SetStateAction<1 | 2>>
+}
+
+export type SpinnerProps = {
+    circleSize: number,
+    circleColor: string
+}
+
+export type InputErrorProp = {
+    errorMessage: string
 }

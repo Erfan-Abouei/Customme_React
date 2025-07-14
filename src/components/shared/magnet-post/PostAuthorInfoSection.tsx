@@ -1,6 +1,6 @@
 import { HiMiniXMark } from "react-icons/hi2"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
-import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext"
+import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext"
 
 const PostAuthorInfoSection = () => {
     const { selectedMagnet } = useMagnetSectionContext()

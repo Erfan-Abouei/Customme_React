@@ -5,8 +5,8 @@ import MagnetPostCard from "../shared/magnet-post/MagnetPostCard"
 import { useState } from "react"
 import { useLocationHash } from "@/hooks/useLocationHash"
 import MovieModal from "../shared/magnet-post/MovieModal"
-import MovieModalProvider from "@/contexts/magnetSectionContext"
 import { useMagnetPostsQuery } from "@/services/query/magnetPostsQueries"
+import { AnimatePresence } from "framer-motion"
 
 
 const MainMenu = () => {
@@ -30,7 +30,9 @@ const MainMenu = () => {
                     </div>
                 </div>
                 {isShowMovieModal && (
-                    <MovieModal />
+                    <AnimatePresence>
+                        <MovieModal />
+                    </AnimatePresence>
                 )}
             </section>
         )
