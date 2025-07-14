@@ -5,22 +5,40 @@ import type { LoginFormProp } from "@/types/components-props.types";
 import { loginWithOtp } from "@/services/api/otpApi";
 import type { OtpRequestBody } from "@/services/dto/otp-login.dto";
 import { useSearchParams } from "react-router";
+import { useState } from "react";
+import Spinner from "@/components/ui/Spinner";
+import { useLoginPageContext } from "@/hooks/contexts-hooks/useLoginPageContext";
 
 type Inputs = {
     phoneNumber: string
 }
 
 const LoginForm = ({ setLoginStep }: LoginFormProp) => {
-    const [searchParams] = useSearchParams()
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>()
+    const { setOtpData } = useLoginPageContext()
+
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [searchParams] = useSearchParams()
+
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        const otpLoginBody: OtpRequestBody = {
-            backUrl: searchParams.get('backUrl') || '',
-            hash: null,
-            otp_call: false,
-            username: data.phoneNumber
+        setIsLoading(true)
+        try {
+            const otpLoginBody: OtpRequestBody = {
+                backUrl: searchParams.get('backUrl') || '/',
+                hash: null,
+                otp_call: false,
+                username: data.phoneNumber
+            }
+
+            const otpResponse = await loginWithOtp(otpLoginBody)
+
+            if (otpResponse?.status === 200) {
+                setLoginStep(2)
+                setOtpData(otpResponse)
+            }
+        } finally {
+            setIsLoading(false)
         }
-        const otpResponse = await loginWithOtp(otpLoginBody)
     }
 
     return (
@@ -36,22 +54,24 @@ const LoginForm = ({ setLoginStep }: LoginFormProp) => {
                 <div className="flex flex-col gap-y-1">
                     {/* input container */}
                     <div className="h-12">
-                        <input {...register('phoneNumber', {
+                        <input disabled={isLoading} {...register('phoneNumber', {
                             required: "لطفا این فیلد را خالی نگذارید",
                             validate: (value) => {
                                 if (!/^[0-9]{11}$/.test(value) || !value.startsWith("09")) {
                                     return "شماره موبایل وارد شده نادرست است"
                                 }
                             }
-                        })} type="text" className={clsx(`transition-all text-sm max-md:text-xs font-iran-regular rounded-md md:border-gray-500 max-md:bg-gray-300 max-md:border-transparent text-gray-800 px-3 size-full md:border border-b-2 md:focus:border-black/40 focus:border-b-black/40`, {
+                        })} type="text" className={clsx(`disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm max-md:text-xs font-iran-regular rounded-md md:border-gray-500 max-md:bg-gray-300 max-md:border-transparent text-gray-800 px-3 size-full md:border border-b-2 md:focus:border-black/40 focus:border-b-black/40`, {
                             "!border-error max-md:!border-b-error": errors.phoneNumber
                         })} />
                     </div>
                     {/* input error */}
-                    {errors.phoneNumber && <InputError errorMessage={errors.phoneNumber.message} />}
+                    {errors.phoneNumber && <InputError errorMessage={errors.phoneNumber.message as string} />}
                 </div>
                 {/* Submit Button */}
-                <button type="submit" className="transition-colors cursor-pointer mt-2 h-12 rounded-md text-white hover:bg-primary/80 bg-primary flex items-center justify-center font-iran-medium text-sm max-md:text-xs">ورود</button>
+                <button disabled={isLoading} type="submit" className="disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer mt-2 h-12 rounded-md text-white hover:bg-primary/80 bg-primary flex items-center justify-center font-iran-medium text-sm max-md:text-xs">
+                    {isLoading ? <Spinner /> : 'ورود'}
+                </button>
             </div>
         </form>
     )

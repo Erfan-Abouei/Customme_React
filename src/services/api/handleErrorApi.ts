@@ -35,6 +35,6 @@ export const handleError = (error: unknown) => {
                 break;
         }
     } else {
-        showToast(ERROR_MESSAGES.SERVER_ERROR, 'error');
+        showToast((error as Error).message, 'error');
     }
 };

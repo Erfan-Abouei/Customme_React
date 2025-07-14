@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import MovieModalTopSection from "./MovieModalTopSection";
 import MovieModalBottomSection from './MovieModalBottomSection';
 import MovieCommentsModal from './comments/MovieCommentsModal';
-import { useMagnetSectionContext } from '@/hooks/useMagnetSectionContext';
+import { useMagnetSectionContext } from '@/hooks/contexts-hooks/useMagnetSectionContext';
 import useFormatVideo from '@/hooks/useFormatVideo';
 import LogoComponent from '@/components/ui/LogoComponent';
 

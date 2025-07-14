@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router";
 import LogoComponent from "@/components/ui/LogoComponent";
 import { HiArrowSmallRight } from "react-icons/hi2";
 import LoginForm from "./components/LoginForm";
+import OtpForm from "./components/OtpForm";
+import LoginPageProvider from "@/contexts/loginPageContext";
 
 
 const LoginPage = () => {
@@ -28,7 +30,9 @@ const LoginPage = () => {
                             <HiArrowSmallRight className="size-full" />
                         </span>
                     </div>
-                    <LoginForm setLoginStep={setLoginStep} />
+                    <LoginPageProvider>
+                        {loginStep === 1 ? <LoginForm setLoginStep={setLoginStep} /> : <OtpForm />}
+                    </LoginPageProvider>
                     {/* Accept Rules */}
                     <p className="text-center text-xs max-md:text-custom text-gray-800 font-iran-medium max-md:font-iran-regular">ورود شما به معنای پذریش قوانین <Link to="/" className="text-primary">کاستومی</Link> است</p>
                 </div>

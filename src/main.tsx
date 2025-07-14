@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
     <Suspense fallback={<LoadingScreen />} >
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <ReactQueryDevtools initialIsOpen={false}/>
+          <ReactQueryDevtools initialIsOpen={false} />
           <App />
         </Provider>
       </QueryClientProvider>

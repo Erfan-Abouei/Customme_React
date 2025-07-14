@@ -1,5 +1,5 @@
 import CommentNotFound from "./CommentNotFound";
-import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext";
+import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext";
 import clsx from "clsx";
 import { memo, type SyntheticEvent } from "react";
 import CommentContainer from "./CommentContainer";

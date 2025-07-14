@@ -1,4 +1,4 @@
-import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext"
+import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext"
 import { useRef, useState } from "react"
 
 const PostInformationSection = () => {

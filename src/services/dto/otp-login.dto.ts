@@ -16,3 +16,10 @@ export type OtpRequestBody = {
     otp_call: boolean
     username: string
 }
+
+export type CheckOtpRequestBody = {
+    backUrl: string
+    code: string
+    type: "otp"
+    username: string
+}

@@ -57,3 +57,12 @@ export type CommentBoxProp = {
 export type LoginFormProp = {
     setLoginStep: React.Dispatch<React.SetStateAction<1 | 2>>
 }
+
+export type SpinnerProps = {
+    circleSize: number,
+    circleColor: string
+}
+
+export type InputErrorProp = {
+    errorMessage: string
+}
