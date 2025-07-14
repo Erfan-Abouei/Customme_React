@@ -15,6 +15,7 @@ export const useSearchItemQuery = (q: string) => {
     return useQuery<SearchDTO>({
         queryKey: ['search_item', q],
         queryFn: ({ signal }) => searchItem(q, signal),
+        retry: 3,
         enabled: !!q
     })
 }

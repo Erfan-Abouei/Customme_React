@@ -17,6 +17,8 @@ export const usePostCommentsQuery = (postId: number) => {
     return useInfiniteQuery<CommentsResponse>({
         queryKey: ['magnet_post_comments', postId],
         queryFn: ({ pageParam = 1 }) => getPostComments(postId, pageParam as number),
+        retry: 3,
+        enabled: !!postId,
         getNextPageParam: (lastPage) => {
             if (
                 lastPage?.status !== 200 ||
