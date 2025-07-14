@@ -1,14 +1,15 @@
 import type { Post } from "@/services/dto/magnet-post/magnet-post.dto"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
-import { useDispatch } from "react-redux"
-import { changeSelectedPost } from "@/reducers/magnet/magnetReducer"
 import { memo } from "react"
+import { useSearchParams } from "react-router"
 
 const MagnetPostCard = (post: Post) => {
-    const dispatch = useDispatch()
+    const [searchParams, setSearchParams] = useSearchParams()
+
     const handleShowPost = () => {
+        searchParams.set('selectedPost', String(post.id))
+        setSearchParams(searchParams)
         location.hash = "#mv"
-        dispatch(changeSelectedPost(post))
     }
     return (
         <div onClick={handleShowPost} className="shrink-0 w-22 flex flex-col items-center gap-y-2">

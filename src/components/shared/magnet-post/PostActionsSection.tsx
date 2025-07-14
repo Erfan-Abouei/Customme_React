@@ -4,13 +4,11 @@ import { HiOutlineEye } from "react-icons/hi2";
 
 import PostActionsButton from "./PostActionsButton"
 import { useMovieModalContext } from "@/hooks/useMovieModalContext";
-import { useSelector } from "react-redux";
-import type { RootState } from "@/store";
 import { formatNumber } from "@/utils/formatNumber";
 
 
 const PostActionsSection = () => {
-    const { selectedMagnet } = useSelector((state: RootState) => state.magnetPosts)
+    const { selectedMagnet } = useMovieModalContext()
     const { setIsOpenCommentsSection } = useMovieModalContext()
 
     return (

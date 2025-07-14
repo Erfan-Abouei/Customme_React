@@ -1,22 +1,22 @@
 import type { AxiosResponse } from "axios";
-import type SearchDTO from "./dto/search.dto";
+import type SearchDTO from "../dto/search.dto";
 
 import api from "./api";
 
 import { ERROR_MESSAGES } from "@/constants/ERROR_MESSAGE";
 import { showToast } from "@/utils/showToast";
 
-export const getTrendSearch = async (): Promise<SearchDTO | null> => {
+export const getTrendSearch = async (): Promise<SearchDTO> => {
     try {
         const response: AxiosResponse<SearchDTO> = await api.get("/autocomplete/");
         return response.data;
     } catch (error) {
         showToast(ERROR_MESSAGES.SERVER_ERROR, 'error')
-        return null;
+        throw error
     }
 };
 
-export const searchItem = async (q: string, signal?: AbortSignal): Promise<SearchDTO | null> => {
+export const searchItem = async (q: string, signal?: AbortSignal): Promise<SearchDTO> => {
     try {
         const response: AxiosResponse<SearchDTO> = await api.get("/autocomplete/", {
             params: { q },
@@ -28,6 +28,6 @@ export const searchItem = async (q: string, signal?: AbortSignal): Promise<Searc
         return response.data;
     } catch (error) {
         showToast(ERROR_MESSAGES.SERVER_ERROR, 'error')
-        return null;
+        throw error;
     }
 };

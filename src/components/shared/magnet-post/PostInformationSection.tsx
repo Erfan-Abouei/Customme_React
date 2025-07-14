@@ -1,12 +1,10 @@
-import type { RootState } from "@/store"
+import { useMovieModalContext } from "@/hooks/useMovieModalContext"
 import { useRef, useState } from "react"
-import { useSelector } from "react-redux"
 
 const PostInformationSection = () => {
     const [isShowMore, setIsShowMore] = useState(false)
     const captionElement = useRef<HTMLParagraphElement>(null)
-    const { selectedMagnet } = useSelector((state: RootState) => state.magnetPosts)
-
+    const { selectedMagnet } = useMovieModalContext()
     const handleShowMoreCaption = () => {
         if (captionElement.current) {
             if (!isShowMore) {

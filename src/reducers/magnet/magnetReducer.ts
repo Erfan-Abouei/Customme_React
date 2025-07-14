@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { InitialState } from "./types/initialState.type";
-import { getMagnetPosts } from "@/services/handle-magnet-post-request";
+import { getMagnetPosts } from "@/services/api/magnetPostApi";
 import type { Post } from "@/services/dto/magnet-post/magnet-post.dto";
 
 const initialState: InitialState = {
@@ -13,10 +13,6 @@ const magnetPostReducer = createSlice({
     name: 'magnetPost',
     initialState,
     reducers: {
-        // Complete this feature after learning createAsyncFunc
-        // getMagnets: (state) => {
-
-        // }
         postsLoading: (state) => {
             state.isLoadingMagnets = true
         },
@@ -55,7 +51,7 @@ const magnetPostReducer = createSlice({
 })
 
 export const fetchPost = createAsyncThunk('magnetPost/fetchPost', async () => {
-    const data = await getMagnetPosts(3)
+    const data = await getMagnetPosts()
     return data
 })
 
