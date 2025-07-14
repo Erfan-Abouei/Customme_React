@@ -1,5 +1,5 @@
 import CommentNotFound from "./CommentNotFound";
-import { useMovieModalContext } from "@/hooks/useMovieModalContext";
+import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext";
 import clsx from "clsx";
 import { memo, type SyntheticEvent } from "react";
 import CommentContainer from "./CommentContainer";
@@ -8,9 +8,9 @@ import CommentsModalHeader from "./CommentsModalHeader";
 import { usePostCommentsQuery } from "@/services/query/magnetPostsQueries";
 
 const MovieCommentsModal = () => {
-    const { selectedMagnet } = useMovieModalContext();
+    const { selectedMagnet } = useMagnetSectionContext();
     const { data: comments, fetchNextPage, isFetchingNextPage, hasNextPage } = usePostCommentsQuery(selectedMagnet?.id as number);
-    const { isOpenCommentsSection } = useMovieModalContext();
+    const { isOpenCommentsSection } = useMagnetSectionContext();
 
     const handleInfinityScroll = (e: SyntheticEvent) => {
         const { scrollTop, scrollHeight, clientHeight } = e.currentTarget;

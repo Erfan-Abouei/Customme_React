@@ -1,14 +1,13 @@
 import type { Post } from "@/services/dto/magnet-post/magnet-post.dto"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
 import { memo } from "react"
-import { useSearchParams } from "react-router"
+import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext"
 
 const MagnetPostCard = (post: Post) => {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const { setSelectedMagnet } = useMagnetSectionContext()
 
     const handleShowPost = () => {
-        searchParams.set('selectedPost', String(post.id))
-        setSearchParams(searchParams)
+        setSelectedMagnet(post)
         location.hash = "#mv"
     }
     return (

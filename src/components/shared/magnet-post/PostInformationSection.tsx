@@ -1,10 +1,10 @@
-import { useMovieModalContext } from "@/hooks/useMovieModalContext"
+import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext"
 import { useRef, useState } from "react"
 
 const PostInformationSection = () => {
     const [isShowMore, setIsShowMore] = useState(false)
     const captionElement = useRef<HTMLParagraphElement>(null)
-    const { selectedMagnet } = useMovieModalContext()
+    const { selectedMagnet } = useMagnetSectionContext()
     const handleShowMoreCaption = () => {
         if (captionElement.current) {
             if (!isShowMore) {

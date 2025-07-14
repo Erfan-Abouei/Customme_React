@@ -8,22 +8,22 @@ interface MagnetPostsProviderType {
     setSelectedMagnet: React.Dispatch<React.SetStateAction<Post | undefined>>
 }
 
-const movieModalContext = createContext<MagnetPostsProviderType | null>(null)
+const magnetSectionContext = createContext<MagnetPostsProviderType | null>(null)
 
-const MovieModalProvider = ({ children }: { children: React.ReactNode }) => {
+const MagnetSectionProvider = ({ children }: { children: React.ReactNode }) => {
     const [isOpenCommentsSection, setIsOpenCommentsSection] = useState(false)
     const [selectedMagnet, setSelectedMagnet] = useState<Post | undefined>()
     return (
-        <movieModalContext.Provider value={{
+        <magnetSectionContext.Provider value={{
             isOpenCommentsSection,
             setIsOpenCommentsSection,
             selectedMagnet,
             setSelectedMagnet
         }}>
             {children}
-        </movieModalContext.Provider>
+        </magnetSectionContext.Provider>
     )
 }
 
-export { movieModalContext }
-export default MovieModalProvider
+export { magnetSectionContext }
+export default MagnetSectionProvider

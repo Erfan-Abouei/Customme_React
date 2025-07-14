@@ -7,6 +7,7 @@ import MagnetSection from "./MagnetSection"
 
 import { useProgress } from "@/hooks/useProgress"
 import { useOfflineAlert } from "@/hooks/useOfflineAlert"
+import MagnetSectionProvider from "@/contexts/magnetSectionContext"
 
 const PagesLayout = () => {
     const isHomePage = useMatch('/')
@@ -19,7 +20,9 @@ const PagesLayout = () => {
             {isHomePage && <WebsiteAlert />}
             <Header />
 
-            <MagnetSection />
+            <MagnetSectionProvider>
+                <MagnetSection />
+            </MagnetSectionProvider>
             <main>
                 <Outlet />
             </main>

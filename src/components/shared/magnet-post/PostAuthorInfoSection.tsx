@@ -1,9 +1,9 @@
 import { HiMiniXMark } from "react-icons/hi2"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
-import { useMovieModalContext } from "@/hooks/useMovieModalContext"
+import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext"
 
 const PostAuthorInfoSection = () => {
-    const { selectedMagnet } = useMovieModalContext()
+    const { selectedMagnet } = useMagnetSectionContext()
 
     return (
         <div className="flex items-start gap-x-1" >

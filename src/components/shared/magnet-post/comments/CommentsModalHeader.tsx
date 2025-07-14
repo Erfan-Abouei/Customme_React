@@ -1,8 +1,8 @@
-import { useMovieModalContext } from "@/hooks/useMovieModalContext";
+import { useMagnetSectionContext } from "@/hooks/useMagnetSectionContext";
 import { HiMiniXMark } from "react-icons/hi2";
 
 const CommentsModalHeader = () => {
-    const { setIsOpenCommentsSection } = useMovieModalContext();
+    const { setIsOpenCommentsSection } = useMagnetSectionContext();
 
     return (
         <div className="flex items-center justify-between py-3.5 px-6 border-b border-b-gray-200 text-gray-900">
