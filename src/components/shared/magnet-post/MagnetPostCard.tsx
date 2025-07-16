@@ -2,13 +2,15 @@ import type { Post } from "@/services/dto/magnet-post/magnet-post.dto"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
 import { memo } from "react"
 import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext"
+import { useModalContext } from "@/hooks/contexts-hooks/useModalContext"
 
 const MagnetPostCard = (post: Post) => {
+    const { activeModal } = useModalContext()
     const { setSelectedMagnet } = useMagnetSectionContext()
 
     const handleShowPost = () => {
         setSelectedMagnet(post)
-        location.hash = "#mv"
+        activeModal('movie-modal')
     }
     return (
         <div onClick={handleShowPost} className="shrink-0 w-22 flex flex-col items-center gap-y-2">

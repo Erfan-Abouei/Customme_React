@@ -33,7 +33,7 @@ const SearchBar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.15, ease: "easeInOut" }}
             className="md:rounded-2xl absolute max-md:fixed max-md:inset-0 left-0 right-0 top-0 bg-white"
         >
             {/* Search Input */}

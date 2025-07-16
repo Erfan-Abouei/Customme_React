@@ -1,9 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import magnetReducer from '@/reducers/magnet/magnetReducer'
 
 const store = configureStore({
     reducer: {
-        magnetPosts: magnetReducer
     }
 })
 

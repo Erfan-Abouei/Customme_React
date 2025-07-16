@@ -6,6 +6,7 @@ import { HiArrowRightEndOnRectangle } from "react-icons/hi2";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 import { useState } from "react";
+import SearchBarOverlay from "../shared/SearchBarOverlay";
 
 
 const Header = () => {
@@ -27,6 +28,8 @@ const Header = () => {
                         <LogoComponent customClass="max-md:order-1" customLogoClass="size-12.5 max-md:size-10" customLogoTypeClass="w-33.75 h-12.5 max-md:hidden" />
                         {/* Search Bar */}
                         <SearchBarContainer />
+                        {/* Search Bar Overlay */}
+                        <SearchBarOverlay />
                         {/* Action Button */}
                         <div className="max-md:hidden flex items-center">
                             {/* Login Button */}

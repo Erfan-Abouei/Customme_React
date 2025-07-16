@@ -28,7 +28,7 @@ const SearchBarContainer = () => {
             {/* Search Icon */}
             <HiMagnifyingGlass className="size-6 max-md:size-4" />
             <AnimatePresence>
-                {isOpenSearchBar && <SearchBar />}
+                {isOpenSearchBar && <SearchBar key="search-bar" />}
             </AnimatePresence>
         </div>
     );

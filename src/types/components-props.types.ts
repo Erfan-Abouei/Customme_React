@@ -1,5 +1,9 @@
 import type { Comment, CommentReply } from "@/services/dto/magnet-post/magnet-post-comments.dto"
 
+export type ChildrenProp = {
+    children: React.ReactNode
+}
+
 export type LogoComponentProps = {
     customLogoClass?: string
     customLogoTypeClass?: string

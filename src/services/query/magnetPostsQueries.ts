@@ -25,6 +25,7 @@ export const usePostCommentsQuery = (postId: number) => {
 
             return current < total ? current + 1 : undefined;
         },
-        initialPageParam: 1
+        initialPageParam: 1,
+        staleTime: 60 * 60 * 10000
     });
 };
