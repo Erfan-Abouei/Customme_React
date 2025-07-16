@@ -26,7 +26,7 @@ const ModalContent = ({ children, modalName }: { children: React.ReactNode, moda
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.15, ease: "easeInOut" }}
                     onClick={closeModal}
-                    className="overlay__modal--show fixed inset-0 size-full flex items-center justify-center transition-all bg-black/50 z-10"
+                    className="overlay__modal--show fixed inset-0 flex items-center justify-center transition-all bg-black/50 z-10"
                 >
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -34,7 +34,7 @@ const ModalContent = ({ children, modalName }: { children: React.ReactNode, moda
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.15, ease: "easeInOut" }}
                         onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
-                        className="relative"
+                        className="relative max-md:size-full"
                     >
                         {Children.map(children, child =>
                             isValidElement(child)
