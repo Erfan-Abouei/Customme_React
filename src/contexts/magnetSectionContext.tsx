@@ -1,4 +1,5 @@
 import type { Post } from "@/services/dto/magnet-post/magnet-post.dto";
+import type { ChildrenProp } from "@/types/components-props.types";
 import { useState, createContext } from "react";
 
 interface MagnetPostsProviderType {
@@ -10,7 +11,7 @@ interface MagnetPostsProviderType {
 
 const magnetSectionContext = createContext<MagnetPostsProviderType | null>(null)
 
-const MagnetSectionProvider = ({ children }: { children: React.ReactNode }) => {
+const MagnetSectionProvider = ({ children }: ChildrenProp) => {
     const [isOpenCommentsSection, setIsOpenCommentsSection] = useState(false)
     const [selectedMagnet, setSelectedMagnet] = useState<Post | undefined>()
     return (

@@ -8,6 +8,7 @@ import MagnetSection from "./MagnetSection"
 import { useProgress } from "@/hooks/useProgress"
 import { useOfflineAlert } from "@/hooks/useOfflineAlert"
 import MagnetSectionProvider from "@/contexts/magnetSectionContext"
+import Modal from "../shared/Modal"
 
 const PagesLayout = () => {
     const isHomePage = useMatch('/')
@@ -27,14 +28,15 @@ const PagesLayout = () => {
                 </MagnetSectionProvider>
             </>
             }
+            <Modal.Content modalName="test">
+                <Modal.Header>Header</Modal.Header>
+                <p>Test</p>
+            </Modal.Content>
             <main>
                 <Outlet />
             </main>
 
             {/* Footer ( After Create ) */}
-
-            {/* Overlay */}
-            <Overlay />
         </>
     )
 }
