@@ -21,7 +21,7 @@ const TrendsSearchSection = () => {
             <div className="flex items-center gap-4 flex-wrap">
                 {isLoadingTrendsSearch && trendsSearchLoader}
                 {!isLoadingTrendsSearch && trendsSearchItems.length > 0 && trendsSearchItems}
-                {(!isLoadingTrendsSearch && trendsSearchItems.length === 0) || isError && (<NotFoundText message="چیزی پیدا نشد" />)}
+                {((!isLoadingTrendsSearch && trendsSearchItems.length === 0) || isError) && (<NotFoundText message="چیزی پیدا نشد" />)}
             </div>
         </div>
     )
