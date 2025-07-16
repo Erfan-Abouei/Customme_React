@@ -13,14 +13,6 @@ import LogoComponent from '@/components/ui/LogoComponent';
 const MovieModal = () => {
     const { selectedMagnet } = useMagnetSectionContext()
 
-    // Get Post 
-    useEffect(() => {
-        if (!selectedMagnet?.id) {
-            location.hash = ""
-            return
-        }
-    }, [selectedMagnet]);
-
     // Redux & Context
     const { isOpenCommentsSection, setIsOpenCommentsSection } = useMagnetSectionContext();
 
@@ -71,11 +63,8 @@ const MovieModal = () => {
     }, [currentTime, duration])
 
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 m-auto z-20 overflow-hidden max-md:p-2 p-3.5 pb-4 max-md:pb-4 md:h-140 h-full max-md:w-full w-80 md:rounded-2xl flex flex-col justify-between"
+        <div
+            className="relative overflow-hidden max-md:p-2 p-3.5 pb-4 max-md:pb-4 md:h-140 h-full max-md:w-full w-80 md:rounded-2xl flex flex-col justify-between"
         >
             {/* Movie Sections */}
             <MovieModalTopSection />
@@ -143,7 +132,7 @@ const MovieModal = () => {
 
             {/* Comments Modal */}
             <MovieCommentsModal />
-        </motion.div>
+        </div>
     );
 };
 

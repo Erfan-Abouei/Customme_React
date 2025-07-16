@@ -11,7 +11,7 @@ const SearchBarOverlay = () => {
         window.location.hash = ""
     }
     return createPortal((
-        <div onClick={handleDeleteEverything} className={`${isShow ? 'overlay__modal--show' : 'overlay__modal--close'} size-full inset-0 fixed transition-all bg-black/50 z-10`}></div>
+        <div onClick={handleDeleteEverything} className={`search-bar__overlay ${isShow ? 'overlay__modal--show' : 'overlay__modal--close'} size-full inset-0 fixed transition-all bg-black/50 z-10`}></div>
     ), document.body)
 
 }

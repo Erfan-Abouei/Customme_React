@@ -2,21 +2,14 @@ import type { Post } from "@/services/dto/magnet-post/magnet-post.dto"
 
 import MagnetPostCardLoader from "../shared/magnet-post/MagnetPostCardLoader"
 import MagnetPostCard from "../shared/magnet-post/MagnetPostCard"
-import { useState } from "react"
-import { useLocationHash } from "@/hooks/useLocationHash"
 import MovieModal from "../shared/magnet-post/MovieModal"
 import { useMagnetPostsQuery } from "@/services/query/magnetPostsQueries"
-import { AnimatePresence } from "framer-motion"
+import Modal from "../shared/Modal"
 
 
 const MainMenu = () => {
     const { data, isLoading: isLoadingMagnets } = useMagnetPostsQuery();
     const magnets = Array.isArray(data?.data) ? [] : data?.data.posts ?? [];
-
-    const [isShowMovieModal, setIsShowMovieModal] = useState<boolean>(false);
-
-    const handleMovieModalVisibility = () => setIsShowMovieModal(location.hash === '#mv');
-    useLocationHash(handleMovieModalVisibility);
 
     const magnetPostCardLoader = Array.from({ length: 11 }).map((_, i: number) => <MagnetPostCardLoader key={i} />);
     const magnetPosts = magnets.map((post: Post) => <MagnetPostCard key={post.id} {...post} />);
@@ -29,11 +22,9 @@ const MainMenu = () => {
                         {isLoadingMagnets ? magnetPostCardLoader : magnetPosts}
                     </div>
                 </div>
-                {isShowMovieModal && (
-                    <AnimatePresence>
-                        <MovieModal />
-                    </AnimatePresence>
-                )}
+                <Modal.Content modalName="movie-modal">
+                    <MovieModal />
+                </Modal.Content>
             </section>
         )
     );

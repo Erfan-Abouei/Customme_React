@@ -6,7 +6,7 @@ import { HiArrowRightEndOnRectangle } from "react-icons/hi2";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 import { useState } from "react";
-import SearchBarOverlay from "../shared/Overlay";
+import SearchBarOverlay from "../shared/SearchBarOverlay";
 
 
 const Header = () => {
