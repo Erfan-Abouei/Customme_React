@@ -22,7 +22,7 @@ const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
         <>
             {isShowResult && (<div className="pb-8 border-b border-gray-400">
                 {!isLoadingAutoComplete && (
-                    <span className="block mb-6 text-custom font-iran-regular text-black">
+                    <span className="block mb-6 text-custom font-dana text-black">
                         همه کالا های {autoCompleteCategoryTitle}
                     </span>
                 )}

@@ -23,7 +23,7 @@ const MagnetPostCard = (post: Post) => {
                 </div>
             </div>
             {/* Magnet Title */}
-            <p className="leading-4 h-8 line-clamp-2 text-xs max-md:text-custom text-gray-950 text-center font-iran-medium max-md:font-iran-regular">{post.title}</p>
+            <p className="leading-4 h-8 line-clamp-2 text-xs max-md:text-custom text-gray-950 text-center font-dana-medium max-md:font-dana">{post.title}</p>
         </div>
     )
 }

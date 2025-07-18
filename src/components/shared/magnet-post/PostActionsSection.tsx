@@ -16,17 +16,17 @@ const PostActionsSection = () => {
             {/* Like */}
             <PostActionsButton>
                 <HiOutlineHeart className="size-6" />
-                <span className=" font-iran-medium text-custom">{formatNumber(selectedMagnet?.likes_count as number)}</span>
+                <span className=" font-dana-medium text-custom">{formatNumber(selectedMagnet?.likes_count as number)}</span>
             </PostActionsButton>
             {/* Comments */}
             <PostActionsButton onClick={() => setIsOpenCommentsSection(true)}>
                 <HiOutlineChatBubbleLeftEllipsis className="size-6" />
-                <span className=" font-iran-medium text-custom">{formatNumber(selectedMagnet?.comments_count as number)}</span>
+                <span className=" font-dana-medium text-custom">{formatNumber(selectedMagnet?.comments_count as number)}</span>
             </PostActionsButton>
             {/* View Count */}
             <PostActionsButton>
                 <HiOutlineEye className="size-6" />
-                <span className=" font-iran-medium text-custom">{formatNumber(selectedMagnet?.views_count as number)}</span>
+                <span className=" font-dana-medium text-custom">{formatNumber(selectedMagnet?.views_count as number)}</span>
             </PostActionsButton>
         </div>
     )

@@ -7,10 +7,10 @@ const SearchResultItem = (data: CategoryItem) => {
             {/* Auto Complete Title */}
             <div className="flex items-center gap-x-1">
                 <HiMagnifyingGlass className="size-4 text-gray-700 transition-colors group-hover:text-primary" />
-                <span className="text-custom text-gray-950 font-iran-regular">{data.keyword}</span>
+                <span className="text-custom text-gray-950 font-dana">{data.keyword}</span>
             </div>
             {/* Category Name */}
-            <span className="mr-5 text-custom font-iran-regular text-gray-700">در دسته <span className="text-primary">{data.category.title_fa}</span></span>
+            <span className="mr-5 text-custom font-dana text-gray-700">در دسته <span className="text-primary">{data.category.title_fa}</span></span>
         </div>
     )
 }

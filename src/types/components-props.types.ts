@@ -70,3 +70,8 @@ export type SpinnerProps = {
 export type InputErrorProp = {
     errorMessage: string
 }
+
+export type SectionTitleProps = {
+    title: string,
+    icon: React.ReactElement
+}

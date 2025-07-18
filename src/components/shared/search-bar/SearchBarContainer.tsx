@@ -19,10 +19,10 @@ const SearchBarContainer = () => {
             'border-transparent rounded-none': isOpenSearchBar
         })}>
             {/* Label ( Desktop ) */}
-            <span className="max-md:hidden text-sm font-iran-regular">جستجو</span>
+            <span className="max-md:hidden text-sm font-dana">جستجو</span>
             {/* Label ( Mobile ) */}
             <div className="md:hidden flex items-center gap-x-1">
-                <span className="text-custom font-iran-regular">جستجو در</span>
+                <span className="text-custom font-dana">جستجو در</span>
                 <img className="w-14.75 h-3.75" src={Type} alt="Type" />
             </div>
             {/* Search Icon */}

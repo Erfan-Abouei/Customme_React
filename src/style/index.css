@@ -2,33 +2,58 @@
 
 @layer base {
 
+  /* Dana Fonts */
   @font-face {
-    font-family: "Iran Black";
-    src: url(/src/assets/fonts/IranYekan/iranyekanwebblack.woff);
+    font-family: "Dana";
+    /* Font Weight : 400 */
+    src:
+      local("Dana"), url(/src/assets/fonts/Dana/woff2/DanaFaNum-Regular.woff2),
+      format("woff2");
     font-display: swap;
   }
 
   @font-face {
-    font-family: "Iran Bold";
-    src: url(/src/assets/fonts/IranYekan/iranyekanwebbold.woff);
+    font-family: "Dana Medium";
+    /* Font Weight : 500 */
+    src:
+      local("Dana Medium"),
+      url(/src/assets/fonts/Dana/woff2/DanaFaNum-Medium.woff2), format("woff2");
     font-display: swap;
   }
 
   @font-face {
-    font-family: "Iran Medium";
-    src: url(/src/assets/fonts/IranYekan/iranyekanwebmedium.woff);
+    font-family: "Dana DemiBold";
+    /* Font Weight : 600 */
+    src:
+      local("Dana DemiBold"),
+      url(/src/assets/fonts/Dana/woff2/DanaFaNum-DemiBold.woff2), format("woff2");
+    font-display: swap;
+  }
+
+  /* ------- */
+
+  /* Morabba Fonts */
+  @font-face {
+    font-family: "Morabba Light";
+    src:
+      local("Morabba Light"),
+      url(/src/assets/fonts/Morabba/woff2/Morabba-Light.woff2), format("woff2");
     font-display: swap;
   }
 
   @font-face {
-    font-family: "Iran Regular";
-    src: url(/src/assets/fonts/IranYekan/iranyekanwebregular.woff);
+    font-family: "Morabba Medium";
+    src:
+      local("Morabba Medium"),
+      url(/src/assets/fonts/Morabba/woff2/Morabba-Medium.woff2), format("woff2");
     font-display: swap;
   }
 
   @font-face {
-    font-family: "Iran Light";
-    src: url(/src/assets/fonts/IranYekan/iranyekanweblight.woff);
+    font-family: "Morabba Bold";
+    src:
+      local("Morabba Bold"),
+      url(/src/assets/fonts/Morabba/woff2/Morabba-Bold.woff2), format("woff2");
     font-display: swap;
   }
 
@@ -65,7 +90,7 @@
   }
 
   div[role="status"] {
-    @apply font-iran-medium text-sm max-md:text-custom
+    @apply font-dana-medium text-sm max-md:text-custom
   }
 
   .page__scroll--custom::-webkit-scrollbar {
@@ -107,11 +132,12 @@
 
 @theme {
   /* Fonts */
-  --font-iran-black: "Iran Black";
-  --font-iran-bold: "Iran Bold";
-  --font-iran-medium: "Iran Medium";
-  --font-iran-regular: "Iran Regular";
-  --font-iran-light: "Iran Light";
+  --font-dana: "Dana";
+  --font-dana-medium: "Dana Medium";
+  --font-dana-semi-bold: "Dana DemiBold";
+  --font-morabba-light: "Morabba Light";
+  --font-morabba-medium: "Morabba Medium";
+  --font-morabba-bold: "Morabba Bold";
 
   --color-primary: #A72F3B;
 

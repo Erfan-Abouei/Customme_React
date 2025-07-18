@@ -14,21 +14,21 @@ const CommentBox = ({ commentData, customClass = '' }: CommentBoxProp) => {
                     </div>
                     <div className="flex items-center gap-x-1.5">
                         {/* Author Name */}
-                        <span className="text-custom font-iran-bold">{commentData.author.username}</span>
+                        <span className="text-custom font-dana-semi-bold">{commentData.author.username}</span>
                         {/* Circle */}
                         <span className="block size-1.5 bg-gray-300 rounded-full"></span>
                         {/* Create At */}
-                        <span className="text-custom font-iran-medium">{commentData.created_at}</span>
+                        <span className="text-custom font-dana-medium">{commentData.created_at}</span>
                     </div>
                 </div>
                 {/* Like Count */}
                 <div className="flex items-center gap-x-0.5">
-                    <span className="text-custom font-iran-bold">{commentData.likes_count ? commentData.likes_count : ''}</span>
+                    <span className="text-custom font-dana-semi-bold">{commentData.likes_count ? commentData.likes_count : ''}</span>
                     <HiOutlineHeart className="size-4" />
                 </div>
             </div>
             {/* Comment */}
-            <p className="font-iran-light text-justify text-custom pr-6.5 text-gray-800">{commentData.comment}</p>
+            <p className="font-dana text-justify text-custom pr-6.5 text-gray-800">{commentData.comment}</p>
         </div>
     )
 }

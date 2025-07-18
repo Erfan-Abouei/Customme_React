@@ -87,7 +87,7 @@ const MovieModal = () => {
             {!isLoaded && (
                 <div className="absolute inset-0 size-full flex items-center justify-center flex-col gap-y-3 bg-black z-30 text-white">
                     <LogoComponent customLogoTypeClass="hidden" customLogoClass="size-10" />
-                    <span className="text-white text-custom font-iran-bold">صبر کنید</span>
+                    <span className="text-white text-custom font-dana-semi-bold">صبر کنید</span>
                 </div>
             )}
 
