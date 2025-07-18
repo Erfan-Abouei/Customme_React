@@ -44,8 +44,8 @@ const SearchBar = () => {
                 </span>
             </div>
             <div className="flex flex-col gap-y-6 pt-0 p-6">
-                <RecentlySearchSection searchValue={search} />
                 <SearchResultSection searchValue={search} />
+                <RecentlySearchSection searchValue={search} />
                 <TrendsSearchSection />
             </div>
         </motion.div >

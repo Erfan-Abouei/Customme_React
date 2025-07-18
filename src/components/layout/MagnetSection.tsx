@@ -18,7 +18,7 @@ const MainMenu = () => {
         (magnets.length > 0 || isLoadingMagnets) && (
             <section className="magnet-section my-8 max-md:my-4">
                 <div className="container">
-                    <div className="flex items-center gap-x-6 overflow-auto page__scroll--hidden">
+                    <div className="flex items-center gap-x-6 max-md:gap-x-4 overflow-auto page__scroll--hidden">
                         {isLoadingMagnets ? magnetPostCardLoader : magnetPosts}
                     </div>
                 </div>

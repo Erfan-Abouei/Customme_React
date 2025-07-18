@@ -1,9 +1,8 @@
 import ModalProvider from "@/contexts/modalContext"
 import { useModalContext } from "@/hooks/contexts-hooks/useModalContext"
 import type { ChildrenProp } from "@/types/components-props.types"
-import React, { Children, cloneElement, isValidElement } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import { createPortal } from "react-dom"
-import { AnimatePresence, motion } from 'framer-motion'
 
 // Compound Component 
 const Modal = ({ children }: ChildrenProp) => {
@@ -14,12 +13,11 @@ const Modal = ({ children }: ChildrenProp) => {
     )
 }
 
-const ModalContent = ({ children, modalName }: { children: React.ReactNode, modalName: string }) => {
+const ModalContent = ({ children, modalName }: { children: React.ReactElement, modalName: string }) => {
     const { activeModalName, closeModal } = useModalContext();
-
-    return createPortal((
+    return createPortal(
         <AnimatePresence>
-            {modalName === activeModalName && (
+            {activeModalName === modalName &&
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -28,24 +26,14 @@ const ModalContent = ({ children, modalName }: { children: React.ReactNode, moda
                     onClick={closeModal}
                     className="overlay__modal--show fixed inset-0 flex items-center justify-center transition-all bg-black/50 z-10"
                 >
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.15, ease: "easeInOut" }}
-                        onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
-                        className="relative max-md:size-full"
-                    >
-                        {Children.map(children, child =>
-                            isValidElement(child)
-                                ? cloneElement(child)
-                                : child
-                        )}
-                    </motion.div>
+                    <div onClick={(e) => e.stopPropagation()}>
+                        {children}
+                    </div>
                 </motion.div>
-            )}
-        </AnimatePresence>
-    ), document.getElementById('modal-container__root')!);
+            }
+        </AnimatePresence>,
+        document.getElementById('modal-container__root')!
+    );
 };
 
 const ModalHeader = ({ children }: ChildrenProp) => {

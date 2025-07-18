@@ -64,7 +64,7 @@ const MovieModal = () => {
 
     return (
         <div
-            className="relative overflow-hidden max-md:p-2 p-3.5 pb-4 max-md:pb-4 md:h-140 h-full max-md:w-full w-80 md:rounded-2xl flex flex-col justify-between"
+            className="relative overflow-hidden max-md:p-2 p-3.5 pb-4 max-md:pb-4 md:min-h-140 min-h-screen max-md:w-screen w-80 md:rounded-2xl flex flex-col justify-between"
         >
             {/* Movie Sections */}
             <MovieModalTopSection />
