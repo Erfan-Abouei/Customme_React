@@ -9,7 +9,7 @@ import { handleError } from "./handleErrorApi";
 
 export const getTrendSearch = async (): Promise<SearchDTO> => {
     try {
-        const response: AxiosResponse<SearchDTO> = await api.get("/autocomplete/");
+        const response: AxiosResponse<SearchDTO> = await api.get("/api/v1/autocomplete/");
         return response.data;
     } catch (error) {
         handleError(error)
@@ -19,7 +19,7 @@ export const getTrendSearch = async (): Promise<SearchDTO> => {
 
 export const searchItem = async (q: string, signal?: AbortSignal): Promise<SearchDTO> => {
     try {
-        const response: AxiosResponse<SearchDTO> = await api.get("/autocomplete/", {
+        const response: AxiosResponse<SearchDTO> = await api.get("/api/v1/autocomplete/", {
             params: { q },
             signal
         });

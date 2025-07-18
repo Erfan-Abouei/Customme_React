@@ -8,7 +8,7 @@ import { handleError } from "./handleErrorApi"
 
 export const getMagnetPosts = async (): Promise<MagnetPostsResponse> => {
     try {
-        const response: AxiosResponse<MagnetPostsResponse> = await api.get('/magnet/home-page/');
+        const response: AxiosResponse<MagnetPostsResponse> = await api.get('/api/v1/magnet/home-page/');
         return response.data;
     } catch (error) {
         handleError(error)
@@ -18,7 +18,7 @@ export const getMagnetPosts = async (): Promise<MagnetPostsResponse> => {
 
 export const getPostComments = async (postId: number, page: number = 1): Promise<CommentsResponse> => {
     try {
-        const response: AxiosResponse<CommentsResponse> = await api.get(`magnet/posts/${postId}/comments/?postId=${postId}&page=${page}`)
+        const response: AxiosResponse<CommentsResponse> = await api.get(`/api/v1/magnet/posts/${postId}/comments/?postId=${postId}&page=${page}`)
         return response.data
     } catch (error) {
         handleError(error)

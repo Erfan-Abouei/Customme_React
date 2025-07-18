@@ -1,12 +1,13 @@
 import type { ImageWithPlaceholderProps } from "@/types/components-props.types";
 import { useState } from "react";
 import Logo from '/Logo.svg';
+import clsx from "clsx";
 
 const ImageWithPlaceholder = ({
     placeHolderURL = Logo,
     resultImageURL,
-    placeHolderClass = "size-full object-cover rounded-full grayscale",
-    resultImageClass = "size-full object-cover rounded-full",
+    placeHolderClass = "size-full rounded-full object-cover grayscale",
+    resultImageClass = "size-full rounded-full object-cover",
 }: ImageWithPlaceholderProps) => {
     const [isLoading, setIsLoading] = useState(true);
 
@@ -19,13 +20,22 @@ const ImageWithPlaceholder = ({
             <img
                 src={placeHolderURL}
                 alt="Placeholder"
-                className={`${placeHolderClass} absolute inset-0 transition-opacity duration-300 ${!isLoading ? "opacity-0" : "opacity-100"}`}
+                className={clsx(
+                    "absolute inset-0 transition-opacity duration-300",
+                    !isLoading ? "opacity-0" : "opacity-100",
+                    placeHolderClass
+                )}
+
             />
             <img
                 loading="lazy"
                 src={resultImageURL}
                 alt="Result"
-                className={`${resultImageClass} transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
+                className={clsx(
+                    "transition-opacity duration-300",
+                    isLoading ? "opacity-0" : "opacity-100",
+                    resultImageClass
+                )}
                 onLoad={handleImageLoad}
                 onError={() => setIsLoading(true)}
             />
