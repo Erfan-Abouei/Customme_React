@@ -12,6 +12,6 @@ const SectionTitle = ({icon, title}) => {
             <div className="max-md:hidden grow h-px bg-gray-400"></div>
         </div>
     )
-}
+} 
 
 export default SectionTitle
