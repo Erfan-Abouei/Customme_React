@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
 @layer base {
+
+  @font-face {
+    font-family: "Iran Black";
+    src: url(/src/assets/fonts/IranYekan/iranyekanwebblack.woff);
+    font-display: swap;
+  }
+
   @font-face {
     font-family: "Iran Bold";
     src: url(/src/assets/fonts/IranYekan/iranyekanwebbold.woff);
@@ -100,6 +107,7 @@
 
 @theme {
   /* Fonts */
+  --font-iran-black: "Iran Black";
   --font-iran-bold: "Iran Bold";
   --font-iran-medium: "Iran Medium";
   --font-iran-regular: "Iran Regular";
@@ -156,5 +164,6 @@
 
   /* Font Size : 10px */
   --text-custom: 0.625rem;
+  --text-h3: 2rem;
   --shadow-custom: 0px 0px 50px;
 }
