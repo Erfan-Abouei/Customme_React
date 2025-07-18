@@ -1,6 +1,6 @@
 import type { SectionTitleProps } from "@/types/components-props.types"
 
-const SectionTitle = ({icon, title}: SectionTitleProps) => {
+const SectionTitle = ({ icon, title, leftItem }: SectionTitleProps) => {
     return (
         <div className="flex items-center max-md:justify-between md:gap-x-4">
             {/* Title */}
@@ -12,8 +12,10 @@ const SectionTitle = ({icon, title}: SectionTitleProps) => {
             </div>
             {/* Line */}
             <div className="max-md:hidden grow h-px bg-gray-400"></div>
+            {/* Left Item */}
+            {leftItem && leftItem}
         </div>
     )
-} 
+}
 
 export default SectionTitle

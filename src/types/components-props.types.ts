@@ -73,5 +73,6 @@ export type InputErrorProp = {
 
 export type SectionTitleProps = {
     title: string,
-    icon: React.ReactElement
+    icon: React.ReactElement,
+    leftItem?: React.ReactElement 
 }
