@@ -38,7 +38,7 @@ const Header = () => {
                                 <span className="relative">
                                     <HiOutlineShoppingCart className="size-6" />
                                     {/* Cart Items Count */}
-                                    <span className="absolute -top-1.5 -right-1.5 block flex items-center justify-center size-4 rounded-full bg-primary-tint-500 text-gray-950 text-xs font-iran-bold">۰</span>
+                                    <span className="absolute -top-1.5 -right-1.5 block flex items-center justify-center size-4 rounded-full bg-primary-tint-500 text-gray-950 text-xs font-dana-demi-bold">0</span>
                                 </span>
                                 <span>سبد خرید</span>
                             </AccountButton>}

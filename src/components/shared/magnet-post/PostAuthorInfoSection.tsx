@@ -18,7 +18,7 @@ const PostAuthorInfoSection = () => {
                 <div className="size-10 rounded-full">
                     <ImageWithPlaceholder resultImageURL={selectedMagnet?.author.photo as string} />
                 </div>
-                <span className="line-clamp-1 text-white text-sm font-iran-bold">{selectedMagnet?.author.name}</span>
+                <span className="line-clamp-1 text-white text-sm font-dana-semi-bold">{selectedMagnet?.author.name}</span>
             </div>
         </div >
     )

@@ -13,20 +13,20 @@ import Modal from './components/shared/Modal.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Modal>
-      <Suspense fallback={<LoadingScreen />} >
+    <Suspense fallback={<LoadingScreen />} >
+      <Modal>
         <QueryClientProvider client={queryClient}>
           <Provider store={store}>
             <ReactQueryDevtools initialIsOpen={false} />
             <App />
           </Provider>
         </QueryClientProvider>
-        <Toaster
-          position="bottom-left"
-        />
-        {/* Fake element (for apply tailwindcss dynamic class ) */}
-        <div className="z-30"></div>
-      </Suspense>
-    </Modal>
+      </Modal>
+      <Toaster
+        position="bottom-left"
+      />
+      {/* Fake element (for apply tailwindcss dynamic class ) */}
+      <div className="z-30"></div>
+    </Suspense>
   </StrictMode >,
 )

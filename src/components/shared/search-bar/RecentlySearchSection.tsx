@@ -20,7 +20,7 @@ const RecentlySearchSection = ({ searchValue }: RecentlySearchSectionProps) => {
     return (
         <div className="flex flex-col gap-y-3.5">
             <div className="flex items-center justify-between">
-                <span className="text-xs font-iran-regular text-gray-950">جستجوهای اخیر شما</span>
+                <span className="text-xs font-dana text-gray-950">جستجوهای اخیر شما</span>
                 <span className="size-5 text-primary cursor-pointer" onClick={handleDeleteRecentlySearch}>
                     <HiOutlineTrash className="size-full" />
                 </span>

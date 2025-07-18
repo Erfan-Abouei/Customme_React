@@ -12,6 +12,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
+      '/v2': {
+        target: 'https://api.digikala.com',
+        changeOrigin: true,
+      },
     }
   },
   plugins: [react(), tailwindcss()],

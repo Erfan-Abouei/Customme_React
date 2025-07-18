@@ -9,8 +9,7 @@ import Modal from "../shared/Modal"
 
 const MainMenu = () => {
     const { data, isLoading: isLoadingMagnets } = useMagnetPostsQuery();
-    const magnets = Array.isArray(data?.data) ? [] : data?.data.posts ?? [];
-
+    const magnets = Array.isArray(data?.data) ? [] : data?.data?.posts ?? [];
     const magnetPostCardLoader = Array.from({ length: 11 }).map((_, i: number) => <MagnetPostCardLoader key={i} />);
     const magnetPosts = magnets.map((post: Post) => <MagnetPostCard key={post.id} {...post} />);
 

@@ -17,7 +17,7 @@ const TrendsSearchSection = () => {
         : []
     return (
         <div className="flex flex-col gap-y-3.5">
-            <span className='text-xs font-iran-regular text-gray-950'>جستجوهای پرطرفدار</span>
+            <span className='text-xs font-dana text-gray-950'>جستجوهای پرطرفدار</span>
             <div className="flex items-center gap-4 flex-wrap">
                 {isLoadingTrendsSearch && trendsSearchLoader}
                 {!isLoadingTrendsSearch && trendsSearchItems.length > 0 && trendsSearchItems}

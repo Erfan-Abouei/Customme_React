@@ -12,20 +12,20 @@ const HeroSection = () => {
                         <div className="max-lg:shrink-1 max-md:px-4 shrink-0 flex flex-col gap-y-14.25 max-lg:gap-y-10 max-md:gap-y-2">
                             {/* Content Top */}
                             <div className="flex flex-col max-md:items-center md:gap-y-4 gap-y-1 text-gray-900">
-                                <h1 className="max-xl:text-3xl text-h3 font-iran-black max-md:font-iran-bold max-md:text-lg max-md:text-center">
+                                <h1 className="max-xl:text-3xl text-h3 font-dana-semi-bold max-md:font-dana-medium max-md:text-lg max-md:text-center">
                                     آنلاین شاپ کاستومی
                                 </h1>
-                                <p className="md:text-justify text-lg max-md:text-xs font-iran-regular lg:max-w-96">
+                                <p className="md:text-justify text-lg max-md:text-xs font-dana lg:max-w-96">
                                     آنلاین شاپ کاستومی محصولات متنوعی داره و این امکان رو بهتون میده خودتون رنگ و طرح و نوشته‌ی روی محصولات رو انتخاب کنید
                                 </p>
                             </div>
                             {/* Content Bottom */}
                             <div className="flex items-center max-md:justify-center gap-x-6 max-md:gap-x-2">
-                                <PrimaryButton customClass="text-white gap-x-1 max-md:text-custom text-sm font-iran-medium max-md:font-iran-regular max-md:w-33 max-w-46 w-full max-md:h-8 h-12 bg-primary hover:bg-primary/80 transition-colors duration-200 cursor-pointer rounded-lg shadow-md hover:shadow-lg">
+                                <PrimaryButton customClass="text-white gap-x-1 max-md:text-custom text-sm font-dana-medium max-md:font-dana max-md:w-33 max-w-46 w-full max-md:h-8 h-12 bg-primary hover:bg-primary/80 transition-colors duration-200 cursor-pointer rounded-lg shadow-md hover:shadow-lg">
                                     <HiOutlinePaintBrush className="size-5 max-md:size-4" />
                                     <span>شروع طراحی</span>
                                 </PrimaryButton>
-                                <PrimaryButton customClass="border border-primary text-primary gap-x-1 max-md:text-custom text-sm font-iran-medium max-md:font-iran-regular max-md:w-33 max-w-46 w-full max-md:h-8 h-12 hover:bg-primary/10 transition-colors duration-200 cursor-pointer rounded-lg">
+                                <PrimaryButton customClass="border border-primary text-primary gap-x-1 max-md:text-custom text-sm font-dana-medium max-md:font-dana max-md:w-33 max-w-46 w-full max-md:h-8 h-12 hover:bg-primary/10 transition-colors duration-200 cursor-pointer rounded-lg">
                                     <span>دیدن محصولات</span>
                                 </PrimaryButton>
                             </div>

@@ -1,3 +1,4 @@
+import type { CategoryData } from "@/services/dto/home-page.dto"
 import type { Comment, CommentReply } from "@/services/dto/magnet-post/magnet-post-comments.dto"
 
 export type ChildrenProp = {
@@ -69,4 +70,15 @@ export type SpinnerProps = {
 
 export type InputErrorProp = {
     errorMessage: string
+}
+
+export type SectionTitleProps = {
+    title: string,
+    icon: React.ReactElement,
+    leftItem?: React.ReactElement
+}
+
+export type CategoriesContainerProps = {
+    isLoading: boolean,
+    productCategoriesData: CategoryData[]
 }
