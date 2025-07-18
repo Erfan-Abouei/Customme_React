@@ -1,12 +1,15 @@
-const Spinner = () => {
+import type { SpinnerProps } from "@/types/components-props.types"
+import clsx from "clsx"
+
+const Spinner = ({ customClass }: SpinnerProps) => {
     return (
-        <div className="flex gap-1">
-            <div className="size-2 rounded-full bg-white animate-bounce"></div>
+        <div className={clsx("flex", customClass)}>
+            <div className="rounded-full animate-bounce"></div>
             <div
-                className="size-2 rounded-full bg-white animate-bounce [animation-delay:-.3s]"
+                className="rounded-full animate-bounce [animation-delay:-.3s]"
             ></div>
             <div
-                className="size-2 rounded-full bg-white animate-bounce [animation-delay:-.5s]"
+                className="rounded-full animate-bounce [animation-delay:-.5s]"
             ></div>
         </div>
     )

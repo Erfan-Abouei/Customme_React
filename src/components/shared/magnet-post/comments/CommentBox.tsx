@@ -1,10 +1,11 @@
 import { HiOutlineHeart } from "react-icons/hi2"
 import ImageWithPlaceholder from "../../ImageWithPlaceholder"
 import type { CommentBoxProp } from "@/types/components-props.types"
+import clsx from "clsx"
 
 const CommentBox = ({ commentData, customClass = '' }: CommentBoxProp) => {
     return (
-        <div className={`flex flex-col gap-y-1.5 ${customClass}`}>
+        <div className={clsx("flex flex-col gap-y-1.5", customClass)}>
             {/* Comment Author Information */}
             <div className="flex items-center justify-between text-gray-700">
                 <div className="flex items-end gap-x-2">

@@ -64,8 +64,7 @@ export type LoginFormProp = {
 }
 
 export type SpinnerProps = {
-    circleSize: number,
-    circleColor: string
+    customClass: string
 }
 
 export type InputErrorProp = {

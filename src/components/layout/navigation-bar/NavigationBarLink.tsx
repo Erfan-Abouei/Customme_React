@@ -7,7 +7,7 @@ const NavigationBarLink = ({ title, icon, activeIcon, path }: NavigationBarLinkP
     return (
         <NavLink to={path} className="flex items-center flex-col gap-y-2">
             {({ isActive, isPending }) => (
-                isPending ? <Spinner /> :
+                isPending ? <Spinner customClass="*:bg-white *:size-4 gap-x-1" /> :
                     <>
                         {isActive ? <span className="size-6 text-white">{activeIcon}</span> : <span className="size-6 text-gray-500">{icon}</span>}
                         <span
