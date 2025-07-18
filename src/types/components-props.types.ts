@@ -82,3 +82,10 @@ export type CategoriesContainerProps = {
     isLoading: boolean,
     productCategoriesData: CategoryData[]
 }
+
+export type NavigationBarLinkProps = {
+    title: string,
+    icon: React.ReactElement,
+    activeIcon: React.ReactElement,
+    path: string
+}

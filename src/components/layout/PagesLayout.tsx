@@ -7,6 +7,7 @@ import MagnetSection from "./MagnetSection"
 import { useProgress } from "@/hooks/useProgress"
 import { useOfflineAlert } from "@/hooks/useOfflineAlert"
 import MagnetSectionProvider from "@/contexts/magnetSectionContext"
+import NavigationBar from "./navigation-bar/NavigationBar"
 
 const PagesLayout = () => {
     const isHomePage = useMatch('/')
@@ -30,6 +31,9 @@ const PagesLayout = () => {
                 <Outlet />
             </main>
 
+            {/* Navigation Bar ( For Mobile ) */}
+            <NavigationBar />
+            
             {/* Footer ( After Create ) */}
         </>
     )
