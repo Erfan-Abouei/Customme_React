@@ -1,3 +1,4 @@
+import type { Color, Product } from "@/services/dto/best-selling.dto"
 import type { CategoryData } from "@/services/dto/home-page.dto"
 import type { Comment, CommentReply } from "@/services/dto/magnet-post/magnet-post-comments.dto"
 
@@ -87,4 +88,19 @@ export type NavigationBarLinkProps = {
     icon: React.ReactElement,
     activeIcon: React.ReactElement,
     path: string
+}
+
+export type ProductCardTitleProps = {
+    title: string,
+    productId: string
+}
+
+export type BestProductSellContainerProps = {
+    productsData: Product[]
+    isLoading: boolean
+}
+
+export type ProductCardImageProps = {
+    imageUrl: string,
+    colors: Color[]
 }

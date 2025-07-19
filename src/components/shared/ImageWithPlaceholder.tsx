@@ -1,10 +1,9 @@
 import type { ImageWithPlaceholderProps } from "@/types/components-props.types";
 import { useState } from "react";
-import Logo from '/Logo.svg';
 import clsx from "clsx";
 
 const ImageWithPlaceholder = ({
-    placeHolderURL = Logo,
+    placeHolderURL = '/images/Image-Place-holder.png',
     resultImageURL,
     placeHolderClass = "size-full rounded-full object-cover grayscale",
     resultImageClass = "size-full rounded-full object-cover",

@@ -1,6 +1,6 @@
+import type { CommentBoxProp } from "@/types/components-props.types"
 import { HiOutlineHeart } from "react-icons/hi2"
 import ImageWithPlaceholder from "../../ImageWithPlaceholder"
-import type { CommentBoxProp } from "@/types/components-props.types"
 import clsx from "clsx"
 
 const CommentBox = ({ commentData, customClass = '' }: CommentBoxProp) => {

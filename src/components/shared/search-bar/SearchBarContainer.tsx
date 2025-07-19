@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useLocationHash } from "@/hooks/useLocationHash";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { AnimatePresence } from "framer-motion";
 import Type from '/Type.svg'
 import SearchBar from "./SearchBar";
-import { AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 const SearchBarContainer = () => {

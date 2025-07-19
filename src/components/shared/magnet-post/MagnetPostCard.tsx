@@ -1,8 +1,8 @@
 import type { Post } from "@/services/dto/magnet-post/magnet-post.dto"
-import ImageWithPlaceholder from "../ImageWithPlaceholder"
 import { memo } from "react"
 import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext"
 import { useModalContext } from "@/hooks/contexts-hooks/useModalContext"
+import ImageWithPlaceholder from "../ImageWithPlaceholder"
 
 const MagnetPostCard = (post: Post) => {
     const { activeModal } = useModalContext()

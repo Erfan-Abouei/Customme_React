@@ -1,14 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import { HiPlay } from "react-icons/hi2";
-import clsx from 'clsx';
-
+import { useMagnetSectionContext } from '@/hooks/contexts-hooks/useMagnetSectionContext';
 import MovieModalTopSection from "./MovieModalTopSection";
 import MovieModalBottomSection from './MovieModalBottomSection';
 import MovieCommentsModal from './comments/MovieCommentsModal';
-import { useMagnetSectionContext } from '@/hooks/contexts-hooks/useMagnetSectionContext';
 import useFormatVideo from '@/hooks/useFormatVideo';
 import LogoComponent from '@/components/ui/LogoComponent';
+import clsx from 'clsx';
 
 const MovieModal = () => {
     const { selectedMagnet } = useMagnetSectionContext()

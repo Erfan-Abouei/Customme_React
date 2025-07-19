@@ -1,9 +1,9 @@
+import type { CategoryData } from "@/services/dto/home-page.dto";
 import SectionTitle from "@/components/ui/SectionTitle"
 import { HiOutlineCalendar } from "react-icons/hi2";
 import CategoriesContainer from "./CategoriesContainer";
 import { filterHomePageStruc } from "@/utils/filterHomePageStruc";
 import { useHomePageQuery } from "@/services/query/homePageQuery";
-import type { CategoryData } from "@/services/dto/home-page.dto";
 
 // I knew that sections should come from the API and be categorized accordingly on the main page,
 // but our design structure was different from Digikala's API,

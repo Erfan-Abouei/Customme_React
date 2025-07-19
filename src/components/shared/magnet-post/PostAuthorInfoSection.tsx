@@ -1,5 +1,5 @@
-import { HiMiniXMark } from "react-icons/hi2"
 import ImageWithPlaceholder from "../ImageWithPlaceholder"
+import { HiMiniXMark } from "react-icons/hi2"
 import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext"
 import { useModalContext } from "@/hooks/contexts-hooks/useModalContext"
 

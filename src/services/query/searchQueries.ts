@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { getTrendSearch, searchItem } from "../api/searchApi"
-import type SearchDTO from "../dto/search.dto"
+import { type SearchDTO } from "../dto/search.dto"
 
 export const useTrendsSearchQuery = () => {
     return useQuery<SearchDTO>({

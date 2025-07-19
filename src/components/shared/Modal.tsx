@@ -1,6 +1,6 @@
+import type { ChildrenProp } from "@/types/components-props.types"
 import ModalProvider from "@/contexts/modalContext"
 import { useModalContext } from "@/hooks/contexts-hooks/useModalContext"
-import type { ChildrenProp } from "@/types/components-props.types"
 import { AnimatePresence, motion } from "framer-motion"
 import { createPortal } from "react-dom"
 

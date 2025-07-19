@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
 import { addRecentlySearch } from '@/utils/recentlySerach';
 import { HiMiniXMark } from "react-icons/hi2";
+import { motion } from 'framer-motion';
+import { useOneTime } from '@/hooks/useOneTime';
 import SearchResultSection from './SearchResultSection';
 import RecentlySearchSection from './RecentlySearchSection';
 import TrendsSearchSection from './TrendsSearchSection';
-import { motion } from 'framer-motion';
-import { useOneTime } from '@/hooks/useOneTime';
 
 const SearchBar = () => {
     const [search, setSearch] = useState<string>("")

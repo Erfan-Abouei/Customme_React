@@ -1,11 +1,9 @@
 import { Outlet, useMatch } from "react-router"
-
+import { useProgress } from "@/hooks/useProgress"
+import { useOfflineAlert } from "@/hooks/useOfflineAlert"
 import Header from "./Header"
 import WebsiteAlert from "../ui/WebsiteAlert"
 import MagnetSection from "./MagnetSection"
-
-import { useProgress } from "@/hooks/useProgress"
-import { useOfflineAlert } from "@/hooks/useOfflineAlert"
 import MagnetSectionProvider from "@/contexts/magnetSectionContext"
 import NavigationBar from "./navigation-bar/NavigationBar"
 
@@ -33,7 +31,7 @@ const PagesLayout = () => {
 
             {/* Navigation Bar ( For Mobile ) */}
             <NavigationBar />
-            
+
             {/* Footer ( After Create ) */}
         </>
     )

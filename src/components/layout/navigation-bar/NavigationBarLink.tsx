@@ -1,7 +1,7 @@
-import Spinner from "@/components/ui/Spinner";
 import type { NavigationBarLinkProps } from "@/types/components-props.types";
-import clsx from "clsx";
 import { NavLink } from "react-router";
+import Spinner from "@/components/ui/Spinner";
+import clsx from "clsx";
 
 const NavigationBarLink = ({ title, icon, activeIcon, path }: NavigationBarLinkProps) => {
     return (

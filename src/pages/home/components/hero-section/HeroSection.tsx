@@ -1,6 +1,6 @@
+import { HiOutlinePaintBrush } from "react-icons/hi2";
 import PrimaryButton from "@/components/ui/PrimaryButton"
 import HeroSectionShape from "./HeroSectionShape"
-import { HiOutlinePaintBrush } from "react-icons/hi2";
 
 const HeroSection = () => {
     return (

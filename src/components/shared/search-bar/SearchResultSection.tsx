@@ -1,10 +1,9 @@
 import type { CategoryItem } from "@/services/dto/search.dto";
 import type { SearchResultSectionProp } from "@/types/components-props.types";
-
-import SearchResultItem from "./SearchResultItem";
-import SearchResultItemLoader from "./SearchResultItemLoader";
 import { useSearchItemQuery } from "@/services/query/searchQueries";
 import { useDebounce } from "@/hooks/useDebounce";
+import SearchResultItem from "./SearchResultItem";
+import SearchResultItemLoader from "./SearchResultItemLoader";
 
 const SearchResultSection = ({ searchValue }: SearchResultSectionProp) => {
     const [debouncedSearchValue] = useDebounce(searchValue, 500)

@@ -1,11 +1,11 @@
 import { useLocationHash } from "@/hooks/useLocationHash";
-import AccountButton from "../shared/AccountButton"
-import SearchBarContainer from "../shared/search-bar/SearchBarContainer"
-import LogoComponent from "../ui/LogoComponent"
 import { HiArrowRightEndOnRectangle } from "react-icons/hi2";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 import { useState } from "react";
+import AccountButton from "../shared/AccountButton"
+import SearchBarContainer from "../shared/search-bar/SearchBarContainer"
+import LogoComponent from "../ui/LogoComponent"
 import SearchBarOverlay from "../shared/SearchBarOverlay";
 
 

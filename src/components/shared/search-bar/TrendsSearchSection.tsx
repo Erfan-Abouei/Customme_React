@@ -1,8 +1,8 @@
 import { memo } from "react"
+import { useTrendsSearchQuery } from "@/services/query/searchQueries"
 import SearchItemLoader from "./SearchItemLoader"
 import SearchItem from "./SearchItem"
 import NotFoundText from "./NotFoundText"
-import { useTrendsSearchQuery } from "@/services/query/searchQueries"
 
 const TrendsSearchSection = () => {
 

@@ -1,9 +1,9 @@
 import type { Post } from "@/services/dto/magnet-post/magnet-post.dto"
 
+import { useMagnetPostsQuery } from "@/services/query/magnetPostsQueries"
 import MagnetPostCardLoader from "../shared/magnet-post/MagnetPostCardLoader"
 import MagnetPostCard from "../shared/magnet-post/MagnetPostCard"
 import MovieModal from "../shared/magnet-post/MovieModal"
-import { useMagnetPostsQuery } from "@/services/query/magnetPostsQueries"
 import Modal from "../shared/Modal"
 
 

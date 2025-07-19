@@ -1,4 +1,7 @@
-export type OtpDto = {
+// No official type definitions from Digikala for the homepage data structure are publicly available,
+// so these interfaces are created based on observed sample data and educated guesses,
+// and may not be complete or fully accurate.
+export interface OtpDto {
     status: number;
     message?: string;
     data?: {
@@ -10,16 +13,16 @@ export type OtpDto = {
     };
 }
 
-export type SendOtpRequestBody = {
+export interface SendOtpRequestBody {
     backUrl: string
     hash: string | null
     otp_call: boolean
     username: string
 }
 
-export type CheckOtpRequestBody = {
+export interface CheckOtpRequestBody {
     backUrl: string
     code: string
-    type: "otp"
+    interface: "otp"
     username: string
 }

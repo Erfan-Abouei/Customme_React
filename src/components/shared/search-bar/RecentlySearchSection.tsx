@@ -1,8 +1,8 @@
 import type { RecentlySearchSectionProps } from "@/types/components-props.types"
 import { useState } from "react"
-import SearchItem from "./SearchItem"
 import { getRecentlySearchFromLocalStorage, removeRecentlySearch } from "@/utils/recentlySerach"
 import { HiOutlineTrash } from "react-icons/hi2"
+import SearchItem from "./SearchItem"
 
 const RecentlySearchSection = ({ searchValue }: RecentlySearchSectionProps) => {
     const [recentlySearch, setRecentlySearch] = useState<string[]>(() => getRecentlySearchFromLocalStorage())

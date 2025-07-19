@@ -1,11 +1,9 @@
+import PostActionsButton from "./PostActionsButton"
 import { HiOutlineHeart } from "react-icons/hi2"
 import { HiOutlineChatBubbleLeftEllipsis } from "react-icons/hi2";
 import { HiOutlineEye } from "react-icons/hi2";
-
-import PostActionsButton from "./PostActionsButton"
 import { useMagnetSectionContext } from "@/hooks/contexts-hooks/useMagnetSectionContext";
 import { formatNumber } from "@/utils/formatNumber";
-
 
 const PostActionsSection = () => {
     const { selectedMagnet } = useMagnetSectionContext()
