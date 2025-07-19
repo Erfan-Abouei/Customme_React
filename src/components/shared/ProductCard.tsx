@@ -57,7 +57,7 @@ const ProductCardCaption = ({ children }: ChildrenProp) => {
 const ProductCardPrice = ({ price }: { price: number }) => {
     const formattedPriceToToman = price / 10
     return (
-        <div className="md:mt-3 flex items-center justify-end gap-x-2 text-black font-dana-semi-bold text-lg max-md:text-sm">
+        <div className="mt-4 max-md:mt-2 flex items-center justify-end gap-x-2 text-black font-dana-semi-bold text-lg max-md:text-sm">
             <span>{formattedPriceToToman.toLocaleString()}</span>
             <span>تومان</span>
         </div>

@@ -9,7 +9,7 @@ const BestProductSellContainer = ({ productsData, isLoading }: BestProductSellCo
         <ProductCard.image colors={product.colors} imageUrl={product.images.main.webp_url[0]} />
         <ProductCard.information>
             <ProductCard.title title={product.title_fa} productId={product.id} />
-            <ProductCard.caption>این یک کپشن فیک است که برای محصول {product.title_fa} در نظر گرفته شده است</ProductCard.caption>
+            <ProductCard.caption>کپشن فیک برای {product.title_fa}</ProductCard.caption>
             <ProductCard.price price={product.default_variant.price.selling_price} />
         </ProductCard.information>
     </ProductCard>)
