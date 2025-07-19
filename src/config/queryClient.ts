@@ -1,4 +1,4 @@
-import type SearchDTO from '@/services/dto/search.dto'
+import { type SearchDTO } from '@/services/dto/search.dto'
 import { getTrendSearch } from '@/services/api/searchApi'
 import { prefetchQuery } from '@/utils/prefetchQuery'
 import { QueryClient } from '@tanstack/react-query'
