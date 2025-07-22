@@ -1,4 +1,4 @@
-import type { ChildrenProp, ProductCardImageProps, ProductCardTitleProps } from "@/types/components-props.types"
+import type { ChildrenProp, ProductCardImageProps, ProductCardPriceProps, ProductCardProps, ProductCardTitleProps } from "@/types/components-props.types"
 import { HiOutlineHeart } from "react-icons/hi2";
 import { showToast } from "@/utils/showToast";
 import { HiOutlinePhoto } from "react-icons/hi2";
@@ -7,9 +7,12 @@ import ImageWithPlaceholder from "./ImageWithPlaceholder"
 
 
 
-const ProductCard = ({ children }: ChildrenProp) => {
+const ProductCard = ({ children, discount }: ProductCardProps) => {
     return (
-        <div className="rounded-2xl border border-gray-500 p-4 max-md:p-3 flex flex-col items-center gap-y-4 max-md:gap-y-3">
+        <div className="relative rounded-2xl border border-gray-500 p-4 max-md:p-3 flex flex-col items-center gap-y-4 max-md:gap-y-3">
+            {discount && <div className="absolute flex items-center justify-center px-2 max-md:px-0 md:h-6 max-md:size-7 bg-primary text-white font-dana-semi-bold text-xs max-md:text-custom top-4 left-4 z-1 rounded-full">
+                <span className="relative top-0.5">%{discount}</span>
+            </div>}
             {children}
         </div>
     )
@@ -19,8 +22,8 @@ const ProductCardImage = ({ imageUrl, colors }: ProductCardImageProps) => {
     return (
         <div className="w-full h-64 max-md:size-24 relative rounded-lg overflow-hidden">
             <ImageWithPlaceholder resultImageURL={imageUrl} resultImageClass="size-full rounded-none object-cover" placeHolderClass="size-full rounded-none object-cover" />
-            {colors.length > 0 && <div className="absolute bottom-0 left-0 flex items-center">
-                {colors.map(color => (<div title={color.title} className="size-4 max-md:size-3 rounded-full -mr-1" style={{ backgroundColor: color.hex_code, border: `${color.hex_code === '#FFFFFF' ? '1px solid black' : ''}` }}></div>))}
+            {colors && colors.length > 0 && <div className="absolute bottom-0 left-0 flex items-center">
+                {colors.map(color => (<div key={color.id} title={color.title} className="size-4 max-md:size-3 rounded-full -mr-1" style={{ backgroundColor: color.hex_code, border: `${color.hex_code === '#FFFFFF' ? '1px solid black' : ''}` }}></div>))}
             </div>}
         </div>
     )
@@ -54,12 +57,16 @@ const ProductCardCaption = ({ children }: ChildrenProp) => {
     )
 }
 
-const ProductCardPrice = ({ price }: { price: number }) => {
+const ProductCardPrice = ({ price, rrpPrice }: ProductCardPriceProps) => {
     const formattedPriceToToman = price / 10
+    const formattedRrpPrice = rrpPrice && rrpPrice / 10;
     return (
-        <div className="mt-4 max-md:mt-2 flex items-center justify-end gap-x-2 text-black font-dana-semi-bold text-lg max-md:text-sm">
-            <span>{formattedPriceToToman.toLocaleString()}</span>
-            <span>تومان</span>
+        <div className="flex items-end flex-col gap-y-2">
+            <div className="mt-4 max-md:mt-2 flex items-center justify-end gap-x-2 text-black font-dana-semi-bold text-lg max-md:text-sm">
+                <span>{formattedPriceToToman.toLocaleString()}</span>
+                <span>تومان</span>
+            </div>
+            {formattedRrpPrice && <span className="line-through text-gray-700 font-dana text-sm max-md:text-xs">{formattedRrpPrice.toLocaleString()}</span>}
         </div>
     )
 }

@@ -102,5 +102,15 @@ export type BestProductSellContainerProps = {
 
 export type ProductCardImageProps = {
     imageUrl: string,
-    colors: Color[]
+    colors?: Color[],
+}
+
+export type ProductCardProps = {
+    children: React.ReactNode,
+    discount?: number | boolean
+}
+
+export type ProductCardPriceProps = {
+    price: number,
+    rrpPrice: number | null
 }
