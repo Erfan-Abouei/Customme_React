@@ -1,4 +1,4 @@
-// No official type definitions from Digikala for the homepage data structure are publicly available,
+// No official type definitions from Digikala for the search data structure are publicly available,
 // so these interfaces are created based on observed sample data and educated guesses,
 // and may not be complete or fully accurate.
 export interface CategoryItem {
