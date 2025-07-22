@@ -114,3 +114,13 @@ export type ProductCardPriceProps = {
     price: number,
     rrpPrice: number | null
 }
+
+export type OfferComponentProp = {
+    discountNumber: number
+}
+
+export type SpecialItemBoxProps = {
+    className: string,
+    boxTitle: string,
+    boxImage: string
+}

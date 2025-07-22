@@ -123,6 +123,25 @@
   .bar {
     background-color: #C15568 !important;
   }
+
+  .offer__card--discount-number {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50.5% 63.25%, 0% 100%);
+    background-color: var(--color-primary-tint-700)
+  }
+
+  .offer__card--discount-number::before {
+    content: '';
+    position: absolute;
+    display: block;
+    inset: 0;
+    height: 20%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 10%, transparent);
+  }
+
+  .special-sell__item {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent)
+  }
+
 }
 
 /* Custom Container */
