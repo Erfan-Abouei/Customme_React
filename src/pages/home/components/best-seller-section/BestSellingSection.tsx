@@ -11,7 +11,9 @@ const BestSellingSection = () => {
     return (
         (bestSellingProduct.length > 0 || isLoading) && (<section className="best-selling-section mt-10 max-md:mt-6">
             <div className="container">
+                {/* Best Selling Section Header */}
                 <SectionTitle title="پرفروش ترین ها" icon={<HiOutlineBolt className="size-full" />} leftItem={<MoreDetailsButton path="/" />} />
+                {/* Best Selling Section Body */}
                 <BestProductSellContainer productsData={bestSellingProduct} isLoading={isLoading} />
             </div>
         </section>)
