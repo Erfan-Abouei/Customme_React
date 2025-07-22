@@ -1,4 +1,4 @@
-import type { CategoryData } from "@/types/public.types"
+import type { CategoryData } from "@/services/dto/home-page.dto"
 import ImageWithPlaceholder from "@/components/shared/ImageWithPlaceholder"
 
 const CategoryItem = (categoryData: CategoryData) => {
