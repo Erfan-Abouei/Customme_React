@@ -122,5 +122,6 @@ export type OfferComponentProp = {
 export type SpecialItemBoxProps = {
     className: string,
     boxTitle: string,
-    boxImage: string
+    boxImage: string,
+    discountNumber: number
 }

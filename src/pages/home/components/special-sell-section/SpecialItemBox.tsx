@@ -3,10 +3,10 @@ import clsx from "clsx"
 import OfferComponent from "./OfferComonent"
 import ImageWithPlaceholder from "@/components/shared/ImageWithPlaceholder"
 
-const SpecialItemBox = ({ className, boxTitle, boxImage }: SpecialItemBoxProps) => {
+const SpecialItemBox = ({ className, discountNumber, boxTitle, boxImage }: SpecialItemBoxProps) => {
     return (
         <div className={clsx(className)}>
-            <OfferComponent discountNumber={20} />
+            <OfferComponent discountNumber={discountNumber} />
             {/* Item Title */}
             <span className="absolute bottom-8 right-8 max-md:bottom-0 max-md:right-4 text-2xl line-clamp-1 max-md:text-sm text-primary-tint-300 font-dana-semi-bold max-md:font-dana">{boxTitle}</span>
             {/* Item Image */}
