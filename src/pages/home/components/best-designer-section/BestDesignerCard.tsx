@@ -21,7 +21,7 @@ const BestDesignerCard = () => {
                 <ImageWithPlaceholder resultImageURL="/images/Designer-Profile.png" />
             </div>
             {/* Designer Name */}
-            <span className="h-10 max-md:h-4 flex items-center justify-center text-base max-md:text-custom font-dana-semi-bold">نیلوفر کریمی</span>
+            <span className="h-10 max-md:h-4 flex items-center justify-center text-base max-md:text-custom font-dana max-md:font-dana-semi-bold">نیلوفر کریمی</span>
             {/* Designer Page Info */}
             <div className="flex items-center max-xl:flex-col justify-between text-custom font-dana text-gray-700">
                 <span>دنبال کنندگان : ۴۰۰</span>
